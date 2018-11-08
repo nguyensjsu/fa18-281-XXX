@@ -40,16 +40,24 @@ func ExampleNewClient() {
 ______________________________________________________________________________
 # REFERENCES
 *[redis with goLang]
+
 *[working with redis]
+
 *[redis github code example]
+
 *[redis official documentation]
+
 *[goLang documentaion]
 
 
 [redis with goLang]:https://golangme.com/blog/how-to-use-redis-with-golang/
+
 [working with redis]:https://www.alexedwards.net/blog/working-with-redis
+
 [redis github code example]:https://github.com/go-redis/redis
+
 [redis official documentation]:http://try.redis.io/
+
 [goLang documentaion]:https://godoc.org/gopkg.in/redis.v3
 
 
