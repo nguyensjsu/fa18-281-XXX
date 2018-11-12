@@ -22,7 +22,7 @@
 
 * [Shubham -> AWS Lambda and Amazon API Gateway](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Research/AWS%20Lambda.md)
 
-* [Vrushali -> Kong vs Amazon API Gateway](https://github.com/nguyensjsu/cmpe281-vrushali-jadhav/blob/master/Project%20Research.md)
+* [Vrushali -> Kong vs Amazon API Gateway](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Vrushali%20Jadhav/Research-KongVSAmazonAPI)
 
 ## Weekly Kanban Flow Diagram:
 
