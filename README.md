@@ -1,11 +1,11 @@
 # Project Name:
 
 ## Team Members:
-* Nitish Joshi
-* Shubham Sawant
-* Rohan Kamat
-* Vrushali Jadhav
 * Asel Salmenbayeva
+* Nitish Joshi
+* Rohan Kamat
+* Shubham Sawant
+* Vrushali Jadhav
 * Yicheng Li
 
 ## Agile Core Values:
