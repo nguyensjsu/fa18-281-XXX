@@ -1,4 +1,4 @@
-# Project Name: 
+# Project Name:
 
 ## Team Members:
 * Nitish Joshi
@@ -12,8 +12,8 @@
 * Communication - Asel
 * Feedback - Nitish
 * Courage - Rohan
-* Commitment - Shubham
-* Respect - Yicheng 
+* [Commitment - Shubham](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Shubham%20Sawant)
+* Respect - Yicheng
 * Simplicity - Vrushali
 
 ## Project Research & Modules:
