@@ -27,5 +27,6 @@
 ## Weekly Kanban Flow Diagram:
 
 ## Kanban Task Board:
+* [Task Board](https://github.com/nguyensjsu/fa18-281-code-monks/projects/2)
 
 ## Architectural Overview:
