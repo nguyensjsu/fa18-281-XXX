@@ -16,7 +16,11 @@
 * Respect - Yicheng
 * Simplicity - Vrushali
 
-## Project Research & Modules:
+## Project Modules:
+
+## Project Research:
+
+* [Shubham -> AWS Lambda and Amazon API Gateway](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Research/AWS%20Lambda.md)
 
 ## Weekly Kanban Flow Diagram:
 
