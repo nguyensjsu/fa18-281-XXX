@@ -9,7 +9,7 @@
 * Yicheng Li
 
 ## Agile Core Values:
-* Communication - Asel
+* Focus - Asel
 * Feedback - Nitish
 * Courage - Rohan
 * [Commitment - Shubham](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Shubham%20Sawant)
