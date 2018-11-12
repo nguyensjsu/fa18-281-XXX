@@ -14,7 +14,7 @@
 * Courage - Rohan
 * [Commitment - Shubham](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Shubham%20Sawant)
 * Respect - Yicheng
-* Simplicity - Vrushali
+* [Openness - Vrushali](https://github.com/nguyensjsu/cmpe281-vrushali-jadhav/blob/master/Scrum%20value:%20Openness)
 
 ## Project Modules:
 
