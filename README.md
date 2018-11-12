@@ -1,4 +1,4 @@
-# Project Name: 
+# Project Name:
 
 ## Team Members:
 * Nitish Joshi
@@ -9,14 +9,20 @@
 * Yicheng Li
 
 ## Agile Core Values:
-* Communication - Asel
+* Focus - Asel
 * Feedback - Nitish
 * Courage - Rohan
-* Commitment - Shubham
-* Respect - Yicheng 
-* Simplicity - Vrushali
+* [Commitment - Shubham](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Commitment-Shubham-Sawant.md)
+* Respect - Yicheng
+* [Openness - Vrushali](https://github.com/nguyensjsu/cmpe281-vrushali-jadhav/blob/master/Scrum%20value:%20Openness)
 
-## Project Research & Modules:
+## Project Modules:
+
+## Project Research:
+
+* [Shubham -> AWS Lambda and Amazon API Gateway](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Research/AWS%20Lambda.md)
+
+* [Vrushali -> Kong vs Amazon API Gateway](https://github.com/nguyensjsu/cmpe281-vrushali-jadhav/blob/master/Project%20Research.md)
 
 ## Weekly Kanban Flow Diagram:
 
