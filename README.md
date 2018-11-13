@@ -8,6 +8,9 @@
 * Vrushali Jadhav
 * Yicheng Li
 
+## Weekly Team Meeting Record:
+* [Link to Weekly Team Meeting Record](https://github.com/nguyensjsu/fa18-281-code-monks/Documentation/Minutes of Meeting.md)
+
 ## Agile Core Values:
 * Focus - Asel
 * Feedback - Nitish
