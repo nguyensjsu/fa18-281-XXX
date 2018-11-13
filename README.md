@@ -13,7 +13,7 @@
 
 ## Agile Core Values:
 * Focus - Asel
-* Feedback - Nitish
+* [Feedback - Nitish](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Nitish%20Joshi/Feedback_Nitish_Joshi.md)
 * Courage - Rohan
 * [Commitment - Shubham](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Commitment-Shubham-Sawant.md)
 * Respect - Yicheng
