@@ -9,7 +9,7 @@
 * Yicheng Li
 
 ## Weekly Team Meeting Record:
-* [Link to Weekly Team Meeting Record](https://github.com/nguyensjsu/fa18-281-code-monks/Documentation/Minutes of Meeting.md)
+[Link to Weekly Team Meeting](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Documentation/Minutes%20of%20Meeting.md)
 
 ## Agile Core Values:
 * Focus - Asel
