@@ -19,7 +19,7 @@ In a week’s time, the team should create and assign user stories, code to deve
 ###### Week 3:
 + A final architecture of the application was articulated.
 + Tasks such as developing GO API (6 GO APIs, 1 for each team member), deploying API on 2 dockers, adding a load balancer to balance the load of 2 dockers and using MongoDB clutser from personal project as backend DB for each API was made 
-+ Additionally, 2 tasks were identified:
-++ Would integrating APIs using MongoDB clusters in different private networks (and different VPCs) into a single application cause any   problems?
-++ How can we make databases that lie within different networks exchange data with each other. For example, how can we pass information of items added in a cart (Cart API) to 'Payment' API?
++ Additionally, 2 tasks were identified:\
+1) Would integrating APIs using MongoDB clusters in different private networks (and different VPCs) into a single application cause any   problems?\
+2) How can we make databases that lie within different networks exchange data with each other. For example, how can we pass information of items added in a cart (Cart API) to 'Payment' API?
   
