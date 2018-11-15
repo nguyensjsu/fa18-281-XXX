@@ -17,7 +17,7 @@
 * Courage - Rohan
 * [Commitment - Shubham](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Commitment-Shubham-Sawant.md)
 * Respect - Yicheng
-* [Focus - Vrushali](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Vrushali%20Jadhav)
+* [Focus - Vrushali](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Vrushali%20Jadhav/Scrum%20value%20-%20Focus.md)
 
 ## Project Modules:
 
