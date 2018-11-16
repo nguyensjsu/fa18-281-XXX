@@ -27,6 +27,8 @@
 
 * [Vrushali -> Kong vs Amazon API Gateway](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Vrushali%20Jadhav/Research-KongVSAmazonAPI)
 
+* [Nitish -> MongoDB](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Nitish%20Joshi/Research/Mongodb.md)
+
 ## Weekly Kanban Flow Diagram:
 
 ## Kanban Task Board:
