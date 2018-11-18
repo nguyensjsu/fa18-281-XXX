@@ -39,3 +39,24 @@
 * Resolved problems encountered by members and discussed the issues/concerns.
 * Decided the team agenda for the next meeting.
 
+# Week 3:
+<b>Date:</b> 11/13/2018  
+<b>Time:</b> 4:00 pm  
+<b>Place:</b> MLK Library, San Jose State University
+
+<b>Members Present: </b> 
+1. Nitish
+2. Shubham
+3. Rohan
+4. Vrushali
+5. Asel
+6. Yicheng
+
+## Meeting Purpose: _Finalizing the GO APIs and assigning them to each team member_ 
+* The team discussed on the possible architecture of the application.
+* Discussed on the different possible GO APIs that can be incorporated within the application.
+* Finalized the GO APIs and assigned them to each member.
+* The team also discussed about the blockers/issues faced by few of the members and attempted to resolve them.
+* The team decided on functional split each member will work on from next week.
+* Several discussions about the the backend MongoDB cluster setup and the architecture.
+* Decided the team agenda for the next meeting.
