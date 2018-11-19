@@ -7,3 +7,9 @@
 * Team decided to keep a 5 minute feedback session at the end of each meeting.
 * One of the team member provided feedback on the use of the Kanban flow diagram and the scrum task board.
 
+## Week 2:
+* At the end of the first week, every team member was able to provide a thorough feedback on the research topics assigned to each member.
+* The team received positive feedback from every member for the proposed technology stack that will be used to develop the application.
+* The team members discussed about the  different application domains in order to finalize one among them and everyone's input was well appreciated.
+* One of the team member suggested one approach on how to proceed with the project and it was accepted with a positive feedback as well.
+
