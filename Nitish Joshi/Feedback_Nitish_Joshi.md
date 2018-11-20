@@ -13,3 +13,8 @@
 * The team members discussed about the  different application domains in order to finalize one among them and everyone's input was well appreciated.
 * One of the team member suggested one approach on how to proceed with the project and it was accepted with a positive feedback as well.
 
+## Week 3:
+* The team discussed and analysed different approaches to develop the application and every team member provided an honest feedback.
+* The team also discussed about the various possible APIs that can be implemented within the application and every team member pitched in with their ideas and APIs which was appreciated equally by everyone.
+* One of the team member highlighted the importance of frequent commits and proper documentation for all the research work done by each team member and this input was positively taken into consideration by all the members.
+* Feedbacks about the time constraints each team member has, was taken into account and the team was prepared to help each other with the assigned tasks.
