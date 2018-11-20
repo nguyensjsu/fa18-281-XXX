@@ -16,4 +16,4 @@
 
 ## Week 3
 
-*
+* Project topic finalized. We assigned goals to implement one go API to each member in one  or one and half week.
