@@ -20,4 +20,16 @@ MongoDB’s document model is simple for developers to learn and use, while stil
 * Management tooling for automation, monitoring, and backup
 * Fully elastic database as a service with built-in best practices
 
+## MongoDB on the AWS Cloud:
+The MongoDB cluster (version 2.6 or 3.0) makes use of Amazon Elastic Compute Cloud (EC2) and Amazon Virtual Private Cloud, and is launched via a AWS CloudFormation template. You can use the template directly or you can copy and then customize it as needed.  The template creates the following resources:
+* VPC with private and public subnets (you can also launch the cluster into an existing VPC).
+* A NAT instance in the public subnet to support SSH access to the cluster and outbound Internet connectivity.
+* An IAM instance role with fine-grained permissions.
+* Security groups.
+* A fully customized MongoDB cluster with replica sets, shards, and config servers, along with customized EBS storage, all running in the private subnet.
+* The document examines scaling, replication, and performance tradeoffs in depth, and provides guidance to help you to choose appropriate types of EC2 instances and EBS volumes.
+
+
 ## Reference:
+https://docs.mongodb.com
+https://aws.amazon.com/blogs/aws/mongodb-on-the-aws-cloud-new-quick-start-reference-deployment/
