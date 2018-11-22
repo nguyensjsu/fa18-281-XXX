@@ -12,7 +12,7 @@
 [Link to Weekly Team Meeting](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Documentation/Minutes%20of%20Meeting.md)
 
 ## Agile Core Values:
-* Openness - Asel
+* [Openness - Asel](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Asel%20Salmenbayeva/Openness.md)
 * [Feedback - Nitish](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Nitish%20Joshi/Feedback_Nitish_Joshi.md)
 * [Courage - Rohan](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Rohan%20Kamat/Rohan_Kamat_Courage.md)
 * [Commitment - Shubham](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Commitment-Shubham-Sawant.md)
