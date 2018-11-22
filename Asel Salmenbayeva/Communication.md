@@ -7,3 +7,7 @@ One of the agile core values, Communication, as stated in Manifesto *"individual
 * Team Hackathon Project **system architecture** and requirements were clarified
 * Each team member was assigned an **agile core value** to document development process, as well as a **research task** to plan the design of application in regard to deployment
 * The team decided on **keeping in touch** by messenger in case of emerging issues or doubts
+
+## Week 2:
+* Team decided on **Go API** each member's about to implement
+* **MongoDB clustering** methods were discussed
