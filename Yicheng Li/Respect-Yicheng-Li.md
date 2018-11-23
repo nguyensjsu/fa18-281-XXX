@@ -17,3 +17,9 @@
 ## Week 3
 
 * Project topic finalized. We assigned goals to implement one go API to each member in one  or one and half week.
+* We respect everyone's inputs for the projects. For example, everyone comes up with ideas of different APIs.
+
+## Week 4
+
+* We came up with new architecture for our project; we put mongoDB into private subnet instead of public subnets. We will try to achieve our mongoDB available in two different regions.
+* We meet and discuss our individual progress and set up new deadline.
