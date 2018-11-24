@@ -14,4 +14,12 @@
 - [X] 6. Test the mongoDB replicaset by inserting data in primary node.
 
 ## Week 3
-###
+### Test GoAPI and move MongoDB replicaset to private subnets.
+- [x] 1. Tested the GoAPI for various corner cases using postman.
+- [x] 2. Researched on VPC peering.
+- [x] 3. Used VPC peering to connect two VPCs which are in different regions.
+- [x] 4. Created a new MongoDb replicaSet in private subnets and in different regions using VPC peering.
+- [x] 5. Tested the new setup using GoAPI.
+
+## Week 4
+### Deploy the GoAPI and start working on fronted NodeJs app

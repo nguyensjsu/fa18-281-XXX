@@ -23,4 +23,7 @@
 
 ## Week 3
 
-*
+* Teammates wrote a simple GoAPI with CRUD operations.
+* Also they come up with a new idea of VPC peering. Now we can setup our mongoDB instances in 2 different regions.
+* Decided the approach to be taken for the remaining things. Finalized the database shcema for each API and assigned it to the team members.
+* Team has decided to complete the assigned GoAPI in a week. Everyone is confident about meeting the deadlines.

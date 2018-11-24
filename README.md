@@ -21,6 +21,8 @@
 
 ## Project Modules:
 
+* [User Login/Signup](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Shubham%20Sawant/UserLoginAPI) - Shubham
+
 ## Project Research:
 
 * [Shubham -> AWS Lambda and Amazon API Gateway](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Research/AWS%20Lambda.md)
