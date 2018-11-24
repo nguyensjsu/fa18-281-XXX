@@ -2,20 +2,18 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
-	"github.com/rs/xid"
 	"github.com/unrolled/render"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
 
 // MongoDB Config
-var mongodb_server = "mongodb://admin:cmpe281@34.221.158.202,54.185.27.49,18.237.78.8,54.186.122.30,34.216.148.220"
+var mongodb_server = "mongodb://admin:cmpe281@34.215.84.228,54.218.68.217,34.221.156.220,54.201.247.253,54.201.182.68"
 
 //var mongodb_server1 string
 //var mongodb_server2 string
@@ -72,21 +70,19 @@ func userHandler(formatter *render.Render) http.HandlerFunc {
 
 		session, err := mgo.Dial(mongodb_server)
 		if err != nil {
-			panic(err)
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
 		}
 
 		defer session.Close()
 		session.SetMode(mgo.PrimaryPreferred, true)
 		c := session.DB(mongodb_database).C(mongodb_collection)
 
-		fmt.Println(email)
 		var result bson.M
 		err = c.Find(bson.M{"Email": email}).One(&result)
 
-		fmt.Println("Result :", result)
 		if result == nil {
 			var noUser user
-			noUser.Message = "User does not exist"
 			formatter.JSON(w, http.StatusOK, noUser)
 		} else {
 			formatter.JSON(w, http.StatusOK, result)
@@ -99,40 +95,44 @@ func userSignUpHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 
 		session, err := mgo.Dial(mongodb_server)
+
+		if err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
 		defer session.Close()
 		session.SetMode(mgo.PrimaryPreferred, true)
 		c := session.DB(mongodb_database).C(mongodb_collection)
 
-		var result bson.M
 		var newUser user
-		_ = json.NewDecoder(req.Body).Decode(&newUser)
-
-		uuidForNewUser := xid.New()
-
-		newUser.UserID = uuidForNewUser.String()
-
-		fmt.Println("Register new user ")
-
-		if err != nil {
-			panic(err)
-		}
-		fmt.Println("Connected to Database")
-
-		query := bson.M{"UserID": newUser.UserID, "Name": newUser.Name, "Email": newUser.Email, "Password": newUser.Password}
-		err = c.Insert(query)
-		if err != nil {
-			log.Fatal(err)
+		if err := json.NewDecoder(req.Body).Decode(&newUser); err != nil {
+			formatter.JSON(w, http.StatusBadRequest, "Invalid request payload")
+			return
 		}
 
-		err = c.Find(bson.M{"UserID": newUser.UserID}).One(&result)
+		newUser.UserID = bson.NewObjectId()
+
+		if err := c.Insert(&newUser); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		var result user
+		if err = c.Find(bson.M{"Email": newUser.Email}).One(&result); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
 		if err != nil {
 			log.Fatal(err)
 		}
+
 		formatter.JSON(w, http.StatusOK, result)
 	}
 }
 
-// API  Handler --------------- Delete a user (DELETE) ------------------
+// API  Handler --------------- Delete the user (DELETE) ------------------
 func deleteUserHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 
@@ -142,29 +142,32 @@ func deleteUserHandler(formatter *render.Render) http.HandlerFunc {
 		session, err := mgo.Dial(mongodb_server)
 
 		if err != nil {
-			panic(err)
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
 		}
 
 		defer session.Close()
 		session.SetMode(mgo.PrimaryPreferred, true)
 		c := session.DB(mongodb_database).C(mongodb_collection)
 
-		c.Remove(bson.M{"Email": email})
-		var deletedUser user
-		deletedUser.Email = email
-		deletedUser.Message = "User has been deleted"
-		formatter.JSON(w, http.StatusOK, deletedUser)
+		if err := c.Remove(bson.M{"Email": email}); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		formatter.JSON(w, http.StatusOK, "User has been deleted successfully!!")
 	}
 }
 
-//TODO
+// API  Handler --------------- Update the user (DELETE) ------------------
 func updateUserHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 
 		session, err := mgo.Dial(mongodb_server)
 
 		if err != nil {
-			panic(err)
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
 		}
 
 		defer session.Close()
@@ -172,16 +175,18 @@ func updateUserHandler(formatter *render.Render) http.HandlerFunc {
 		c := session.DB(mongodb_database).C(mongodb_collection)
 
 		var newUser user
-		_ = json.NewDecoder(req.Body).Decode(&newUser)
+		if err := json.NewDecoder(req.Body).Decode(&newUser); err != nil {
+			formatter.JSON(w, http.StatusBadRequest, "Invalid request payload")
+			return
+		}
 
-		var result bson.M
-		err = c.Find(bson.M{"Email": newUser.Email}).One(&result)
-
-		err = c.Update(bson.M{"Email": newUser.Email}, newUser)
+		if err := c.UpdateId(newUser.UserID, &newUser); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
 
 		var updatedUser user
-		updatedUser.Email = newUser.Email
-		updatedUser.Message = "User details have been successfully updated."
+		c.Find(bson.M{"Email": newUser.Email}).One(&updatedUser)
 		formatter.JSON(w, http.StatusOK, updatedUser)
 
 	}
