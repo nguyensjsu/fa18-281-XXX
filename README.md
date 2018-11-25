@@ -42,3 +42,5 @@
 * [Task Board](https://github.com/nguyensjsu/fa18-281-code-monks/projects/2)
 
 ## Architectural Overview:
+![Architecture Image](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Documentation/Architecture.png)
+      
