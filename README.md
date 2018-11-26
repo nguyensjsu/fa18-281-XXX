@@ -43,4 +43,7 @@
 
 ## Architectural Overview:
 ![Architecture Image](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Documentation/Architecture.png)
+
+## MongoDB Cluster:
+![MongoDB Cluster Image](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Documentation/MongoDB%20Cluster.png)
       
