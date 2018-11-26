@@ -23,6 +23,9 @@
 
 * [User Login/Signup](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Shubham%20Sawant/UserLoginAPI) - Shubham
 * [Cart API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Rohan%20Kamat/mongoGOapi) -Rohan
+* [Reviews API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Rohan%20Kamat/mongoGOapi) -Vrushali
+
+
 ## Project Research:
 
 * [Shubham -> AWS Lambda and Amazon API Gateway](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Research/AWS%20Lambda.md)
