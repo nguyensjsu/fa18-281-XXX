@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 
 	"github.com/codegangsta/negroni"
@@ -47,6 +46,7 @@ func NewServer() *negroni.Negroni {
 // API Routes
 func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/ping", pingHandler(formatter)).Methods("GET")
+	mx.HandleFunc("/users", getAllUsersHandler(formatter)).Methods("GET")
 	mx.HandleFunc("/users/{email}", userHandler(formatter)).Methods("GET")
 	mx.HandleFunc("/users", userSignUpHandler(formatter)).Methods("POST")
 	mx.HandleFunc("/users/{email}", deleteUserHandler(formatter)).Methods("DELETE")
@@ -58,6 +58,31 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 func pingHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		formatter.JSON(w, http.StatusOK, struct{ Test string }{"API version 1.0 alive!"})
+	}
+}
+
+// API  Handler --------------- Get all Users (GET) ------------------
+func getAllUsersHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+
+		var users []user
+
+		session, err := mgo.Dial(mongodb_server)
+		if err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		defer session.Close()
+		session.SetMode(mgo.PrimaryPreferred, true)
+		c := session.DB(mongodb_database).C(mongodb_collection)
+
+		if err = c.Find(bson.M{}).All(&users); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		formatter.JSON(w, http.StatusOK, users)
 	}
 }
 
@@ -122,10 +147,6 @@ func userSignUpHandler(formatter *render.Render) http.HandlerFunc {
 		if err = c.Find(bson.M{"Email": newUser.Email}).One(&result); err != nil {
 			formatter.JSON(w, http.StatusInternalServerError, err.Error())
 			return
-		}
-
-		if err != nil {
-			log.Fatal(err)
 		}
 
 		formatter.JSON(w, http.StatusOK, result)
