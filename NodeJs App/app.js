@@ -35,7 +35,7 @@ var isLoggedIn = false;
 var cartQuantity = 0;
 var cart = Object();
 
-cart.products = [];
+cart.items = [];
 cart.total = 0;
 
 app.get('/signin', function(request, response) {
@@ -152,6 +152,16 @@ app.get('/products/:id', function(request, response) {
 			var product = JSON.parse(this.responseText);
 			response.render('./main/product', {product: product, login: isLoggedIn, cartQuantity: 0});
 		}
+	}
+});
+
+app.get('/cart', function(request, response) {
+
+	if(isLoggedIn) {
+		response.render('./main/cart', {foundCart: cart, login: isLoggedIn, cartQuantity: 0});
+	}
+	else {
+		response.redirect("/signin");
 	}
 });
 
