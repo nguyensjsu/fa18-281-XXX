@@ -12,7 +12,7 @@ import (
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
-var mongodb_server = "mongodb://admin:cmpe281@184.169.234.66,13.56.119.112,13.52.39.43"
+var mongodb_server = "mongodb://admin:cmpe281@52.36.162.29"
 var mongodb_database = "TeamProject"
 var mongodb_collection = "cart"
 func NewServer() *negroni.Negroni {
@@ -27,18 +27,18 @@ func NewServer() *negroni.Negroni {
 }
 
 
-	
+
 
 
 func initRoutes(mx *mux.Router, formatter *render.Render) {
-	
+
 	mx.HandleFunc("/ping", pingHandler(formatter)).Methods("GET")
 	mx.HandleFunc("/Cart/{cartid}", GetCartHandler(formatter)).Methods("GET")
 	mx.HandleFunc("/Cart", NewCartHandler(formatter)).Methods("POST")
-	//mx.HandleFunc("/Cart/{Cartid}", UpdateCart(formatter)).Methods("PUT")
+	mx.HandleFunc("/Cart/{Cartid}", UpdateCart(formatter)).Methods("PUT")
 	mx.HandleFunc("/Cart/{cartid}", DeleteCartHandler(formatter)).Methods("DELETE")
-	
-	
+
+
 	//Ping Handler
 }
 func pingHandler(formatter *render.Render) http.HandlerFunc {
@@ -61,8 +61,8 @@ func NewCartHandler(formatter *render.Render) http.HandlerFunc{
     for _, num := range newCart.products {
 	  totalPrice += float64(num.Price * float64(num.Quantity))
 		}
-		newCart.TotalPrice = totalPrice	
-									 
+		newCart.TotalPrice = totalPrice
+
 
 		if err != nil {
 			panic(err)
@@ -77,48 +77,53 @@ func NewCartHandler(formatter *render.Render) http.HandlerFunc{
 		if err != nil {
 			log.Fatal(err)
 		}
-		formatter.JSON(w, http.StatusOK, result)	
-		
+		formatter.JSON(w, http.StatusOK, result)
+
 	}
 }
 
 
 //TODO
 //Update cart by ID
-/*func UpdateCart(formatter *render.Render) http.HandlerFunc{
+func UpdateCart(formatter *render.Render) http.HandlerFunc{
 	return func(w http.ResponseWriter, req *http.Request){
 		session, err := mgo.Dial(mongodb_server)
 		defer session.Close()
 		session.SetMode(mgo.PrimaryPreferred, true)
 		c := session.DB(mongodb_database).C(mongodb_collection)
 		var result bson.M
-		var newproduct Product
-		
-		_ = json.NewDecoder(req.Body).Decode(&newproduct)
+		var Cart cart
+
+		_ = json.NewDecoder(req.Body).Decode(&Cart)
 		vars := mux.Vars(req)
-		Cartid := vars["Cartid"]
+		cartid := vars["cartid"]
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println("Connected to Database")
-		err = c.Find(bson.M{"CartID": Cartid}).One(&result)
-        if result == nil {
-			fmt.Println("No such Cart....")
+        err = c.Find(bson.M{"CartID": cartid}).One(&result)
+		fmt.Println("Result :", result)
+		if result == nil {
+			fmt.Println("No such cart")
 		} else {
 			formatter.JSON(w, http.StatusOK, result)
 		}
-		totalPrice := float64(0)
-		for _, num := range newproduct.Product {
-			totalPrice += float64(num.Price * float64(num.Quantity))
-			  }
 
-		
-		
-        
+		if err:=c.Update(Cart.CartID,&Cart);err!=nil{
+			formatter.JSON(w,http.StatusInternalServerError,err.Error())
+			return
+		}
+		var updatedCart	cart
+		c.Find(bson.M{"CartID":Cart.CartID}).One(&updatedCart)
+		formatter.JSON(w,http.StatusOK,updatedCart)
+
+
+
+
+
 
 	}
-	
-}*/
+
+}
 //Get Cart Details by ID
 func GetCartHandler(formatter *render.Render) http.HandlerFunc{
 	return func(w http.ResponseWriter, req *http.Request){
@@ -166,6 +171,3 @@ func DeleteCartHandler(formatter *render.Render) http.HandlerFunc{
 
 			}
 		}
-
-	
-
