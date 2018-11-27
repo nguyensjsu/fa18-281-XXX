@@ -1,30 +1,40 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
-	// "encoding/json"
+
 	"github.com/codegangsta/negroni"
-	// "github.com/streadway/amqp"
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
-	// "github.com/satori/go.uuid"
 	"gopkg.in/mgo.v2"
-    // "gopkg.in/mgo.v2/bson"
+	"gopkg.in/mgo.v2/bson"
 )
 
 // MongoDB Config
-var mongodb_server = "mongodb://user_name:password@ip_add"  
+var mongodb_server = "mongodb://admin:cmpe281@34.215.84.228,54.218.68.217,34.221.156.220,54.201.247.253,54.201.182.68"
+
+//var mongodb_server1 string
+//var mongodb_server2 string
+//var redis_server string
+
 var mongodb_database = "TeamProject"
 var mongodb_collection = "products"
-
 
 // NewServer configures and returns a Server.
 func NewServer() *negroni.Negroni {
 	formatter := render.New(render.Options{
 		IndentJSON: true,
 	})
+
+	//mongodb_server = os.Getenv("MONGO1")
+	//mongodb_server1 = os.Getenv("MONGO2")
+	//mongodb_server2 = os.Getenv("MONGO3")
+	//mongodb_database = os.Getenv("MONGO_DB")
+	//mongodb_collection = os.Getenv("MONGO_COLLECTION")
+	//redis_server = os.Getenv("REDIS")
+
 	n := negroni.Classic()
 	mx := mux.NewRouter()
 	initRoutes(mx, formatter)
@@ -35,18 +45,10 @@ func NewServer() *negroni.Negroni {
 // API Routes
 func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/ping", pingHandler(formatter)).Methods("GET")
-	//mx.HandleFunc("/product", burgerCreateProductHandler(formatter)).Methods("POST")
-	mx.HandleFunc("/products", burgerProductsDetailsHandler(formatter)).Methods("GET")
-	//mx.HandleFunc("/product/{id}", burgerProductDetailsHandler(formatter)).Method("GET")
-	//mx.HandleFunc("/product/{id}", burgerDeleteProductHandler(formatter)).Methods("DELETE")
-}
-
-// Helper Functions
-func failOnError(err error, msg string) {
-	if err != nil {
-		log.Fatalf("%s: %s", msg, err)
-		panic(fmt.Sprintf("%s: %s", msg, err))
-	}
+	mx.HandleFunc("/products", productsHandler(formatter)).Methods("GET")
+	mx.HandleFunc("/products/{productID}", getProductsHandler(formatter)).Methods("GET")
+	mx.HandleFunc("/products", addProductHandler(formatter)).Methods("POST")
+	mx.HandleFunc("/products/{productID}", deleteProductsHandler(formatter)).Methods("DELETE")
 }
 
 // API Ping Handler
@@ -56,187 +58,123 @@ func pingHandler(formatter *render.Render) http.HandlerFunc {
 	}
 }
 
-// API Create Products Handler
-// func burgerCreateProductHandler(formatter *render.Render) http.HandlerFunc {
-// 	return func(w http.ResponseWriter, req *http.Request) {
-// 				// Open MongoDB Session
-// 				session, err := mgo.Dial(mongodb_server)
-// 		        if err != nil {
-// 		                panic(err)
-// 		        }
-// 		        defer session.Close()
-// 		        session.SetMode(mgo.Monotonic, true)
-// 		        c := session.DB(mongodb_database).C(mongodb_collection)
-//
-// 						var newProduct product
-// 						if err := json.NewDecoder(req.Body).Decode(&newProduct); err != nil {
-// 								formatter.JSON(w, http.StatusBadRequest, "Invalid request payload")
-// 								return
-// 						}
-//
-// 						if err := c.Insert(&newProduct); err != nil {
-// 							formatter.JSON(w, http.StatusInternalServerError, err.Error())
-// 							return
-// 						}
-//
-// 						if err != nil {
-// 							log.Fatal(err)
-// 						}
-//
-// 						formatter.JSON(w, http.StatusOK, result)
-// 	}
-// }
-
-func burgerProductsDetailsHandler(formatter *render.Render) http.HandlerFunc  {
+// API  Handler --------------- Get all the products (GET) ------------------
+func productsHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
+
+		var products []Product
+
 		session, err := mgo.Dial(mongodb_server)
-		         if err != nil {
-		                panic(err)
-		        }
-		        defer session.Close()
-		        session.SetMode(mgo.Monotonic, true)
-		        c := session.DB(mongodb_database).C(mongodb_collection)
+		if err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
 
-						var results []product
-						if err := c.Find(nil).All(&results); err != nil {
-							formatter.JSON(w, http.StatusInternalServerError, err.Error())
-							return
-						}
-						if err != nil {
-						                log.Fatal(err)
-						}
-						fmt.Println("Number of Products", len(results))
+		defer session.Close()
+		session.SetMode(mgo.PrimaryPreferred, true)
+		c := session.DB(mongodb_database).C(mongodb_collection)
 
-						formatter.JSON(w, http.StatusOK, results)
+		if err = c.Find(bson.M{}).All(&products); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		formatter.JSON(w, http.StatusOK, products)
 	}
 }
-//
-// API Gumball Machine Handler
-// func gumballHandler(formatter *render.Render) http.HandlerFunc {
-// 	return func(w http.ResponseWriter, req *http.Request) {
-// 		session, err := mgo.Dial(mongodb_server)
-//         if err != nil {
-//                 panic(err)
-//         }
-//         defer session.Close()
-//         session.SetMode(mgo.Monotonic, true)
-//         c := session.DB(mongodb_database).C(mongodb_collection)
-//         var result bson.M
-//         err = c.Find(bson.M{"SerialNumber" : "1234998871109"}).One(&result)
-//         if err != nil {
-//                 log.Fatal(err)
-//         }
-//         fmt.Println("Gumball Machine:", result )
-// 		formatter.JSON(w, http.StatusOK, result)
-// 	}
-// }
-//
-// // API Update Gumball Inventory
-// func gumballUpdateHandler(formatter *render.Render) http.HandlerFunc {
-// 	return func(w http.ResponseWriter, req *http.Request) {
-//     	var m gumballMachine
-//     	_ = json.NewDecoder(req.Body).Decode(&m)
-//     	fmt.Println("Update Gumball Inventory To: ", m.CountGumballs)
-// 		session, err := mgo.Dial(mongodb_server)
-//         if err != nil {
-//                 panic(err)
-//         }
-//         defer session.Close()
-//         session.SetMode(mgo.Monotonic, true)
-//         c := session.DB(mongodb_database).C(mongodb_collection)
-//         query := bson.M{"SerialNumber" : "1234998871109"}
-//         change := bson.M{"$set": bson.M{ "CountGumballs" : m.CountGumballs}}
-//         err = c.Update(query, change)
-//         if err != nil {
-//                 log.Fatal(err)
-//         }
-//        	var result bson.M
-//         err = c.Find(bson.M{"SerialNumber" : "1234998871109"}).One(&result)
-//         if err != nil {
-//                 log.Fatal(err)
-//         }
-//         fmt.Println("Gumball Machine:", result )
-// 		formatter.JSON(w, http.StatusOK, result)
-// 	}
-// }
-//
-// // API Create New Gumball Order
-// func gumballNewOrderHandler(formatter *render.Render) http.HandlerFunc {
-// 	return func(w http.ResponseWriter, req *http.Request) {
-// 		uuid,_ := uuid.NewV4()
-//     	var ord = order {
-// 					Id: uuid.String(),
-// 					OrderStatus: "Order Placed",
-// 		}
-// 		if orders == nil {
-// 			orders = make(map[string]order)
-// 		}
-// 		orders[uuid.String()] = ord
-// 		queue_send(uuid.String())
-// 		fmt.Println( "Orders: ", orders )
-// 		formatter.JSON(w, http.StatusOK, ord)
-// 	}
-// }
-//
-// // API Get Order Status
-// func gumballOrderStatusHandler(formatter *render.Render) http.HandlerFunc {
-// 	return func(w http.ResponseWriter, req *http.Request) {
-// 		params := mux.Vars(req)
-// 		var uuid string = params["id"]
-// 		fmt.Println( "Order ID: ", uuid )
-// 		if uuid == ""  {
-// 			fmt.Println( "Orders:", orders )
-// 			var orders_array [] order
-// 			for key, value := range orders {
-//     			fmt.Println("Key:", key, "Value:", value)
-//     			orders_array = append(orders_array, value)
-// 			}
-// 			formatter.JSON(w, http.StatusOK, orders_array)
-// 		} else {
-// 			var ord = orders[uuid]
-// 			fmt.Println( "Order: ", ord )
-// 			formatter.JSON(w, http.StatusOK, ord)
-// 		}
-// 	}
-// }
 
+// API  Handler --------------- Get the product info (GET) ------------------
+func getProductsHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
 
+		vars := mux.Vars(req)
+		productId := vars["productID"]
 
-/*
+		session, err := mgo.Dial(mongodb_server)
+		if err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
 
-  	-- Gumball MongoDB Collection (Create Document) --
+		defer session.Close()
+		session.SetMode(mgo.PrimaryPreferred, true)
+		c := session.DB(mongodb_database).C(mongodb_collection)
 
-    db.gumball.insert(
-	    {
-	      Id: 1,
-	      CountGumballs: NumberInt(202),
-	      ModelNumber: 'M102988',
-	      SerialNumber: '1234998871109'
-	    }
-	) ;
+		var result Product
+		if err = c.FindId(bson.ObjectIdHex(productId)).One(&result); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
 
-    -- Gumball MongoDB Collection - Find Gumball Document --
+		formatter.JSON(w, http.StatusOK, result)
+	}
+}
 
-    db.gumball.find( { Id: 1 } ) ;
+// API  Handler --------------- Add a product (POST) ------------------
+func addProductHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
 
-    {
-        "_id" : ObjectId("54741c01fa0bd1f1cdf71312"),
-        "Id" : 1,
-        "CountGumballs" : 202,
-        "ModelNumber" : "M102988",
-        "SerialNumber" : "1234998871109"
-    }
+		session, err := mgo.Dial(mongodb_server)
 
-    -- Gumball MongoDB Collection - Update Gumball Document --
+		if err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
 
-    db.gumball.update(
-        { Dd: 1 },
-        { $set : { CountGumballs : NumberInt(10) } },
-        { multi : false }
-    )
+		defer session.Close()
+		session.SetMode(mgo.PrimaryPreferred, true)
+		c := session.DB(mongodb_database).C(mongodb_collection)
 
-    -- Gumball Delete Documents
+		fmt.Println("Connected to the database")
 
-    db.gumball.remove({})
+		var newProduct Product
+		if err := json.NewDecoder(req.Body).Decode(&newProduct); err != nil {
+			formatter.JSON(w, http.StatusBadRequest, "Invalid request payload")
+			return
+		}
 
- */
+		fmt.Println(newProduct)
+
+		newProduct.ProductID = bson.NewObjectId()
+
+		if err := c.Insert(&newProduct); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		var result Product
+		if err = c.Find(bson.M{"ProductName": newProduct.ProductName}).One(&result); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		formatter.JSON(w, http.StatusOK, result)
+	}
+}
+
+//API Handler --------------- Delete a product (DELETE) ------------------
+func deleteProductsHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+
+		vars := mux.Vars(req)
+		productID := vars["productID"]
+
+		session, err := mgo.Dial(mongodb_server)
+
+		if err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		defer session.Close()
+		session.SetMode(mgo.PrimaryPreferred, true)
+		c := session.DB(mongodb_database).C(mongodb_collection)
+
+		if err := c.Remove(bson.M{"ProductID": productID}); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		formatter.JSON(w, http.StatusOK, "Product has been deleted successfully!!")
+	}
+}
