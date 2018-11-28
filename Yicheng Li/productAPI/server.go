@@ -13,8 +13,8 @@ import (
 )
 
 // MongoDB Config
-var mongodb_server = "mongodb://admin:cmpe281@34.215.84.228,54.218.68.217,34.221.156.220,54.201.247.253,54.201.182.68"
-
+// var mongodb_server = "mongodb://admin:cmpe281@34.215.84.228,54.218.68.217,34.221.156.220,54.201.247.253,54.201.182.68"
+var mongodb_server = "mongodb://admin:cmpe281@13.57.205.102"
 //var mongodb_server1 string
 //var mongodb_server2 string
 //var redis_server string
@@ -170,7 +170,7 @@ func deleteProductsHandler(formatter *render.Render) http.HandlerFunc {
 		session.SetMode(mgo.PrimaryPreferred, true)
 		c := session.DB(mongodb_database).C(mongodb_collection)
 
-		if err := c.Remove(bson.M{"ProductID": productID}); err != nil {
+		if err = c.Remove(bson.M{"productID": productID}); err != nil {
 			formatter.JSON(w, http.StatusInternalServerError, err.Error())
 			return
 		}
