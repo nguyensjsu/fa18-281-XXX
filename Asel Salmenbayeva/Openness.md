@@ -1,5 +1,5 @@
-# Communication
-One of the agile core values, Communication, as stated in Manifesto *"individuals and interactions over processes and tools"* is valuing people over processes or tools. That means people are driving the development process and a proper interaction between team members is essential.
+# Openness
+One of the agile core values, Openness, as stated in Manifesto *"individuals and interactions over processes and tools"* is valuing people over processes or tools. That means people are driving the development process and a proper and open interaction between team members is essential.
 
 ## Week 1:
 * A need of frequent **srum meetings** of at least once a week was brought out
@@ -9,5 +9,14 @@ One of the agile core values, Communication, as stated in Manifesto *"individual
 * The team decided on **keeping in touch** by messenger in case of emerging issues or doubts
 
 ## Week 2:
-* Team decided on **Go API** each member's about to implement
+* Team decided on **Go API** each member's about to implement and each team member proposed their own ideas as well as doubts about usefulness of some functions
 * **MongoDB clustering** methods were discussed
+* Discussed on how to integrate each member's personal project on team project
+* Team members attentively listened encuntered issues or doubts of each other and helped to solve or clarify them
+
+## Week 3:
+* **Go APIs** for each member were finalized and everyone chose their respective API.
+* Discussed how to setup **MongoDB clusters** and overall **connectivity** between each member's part
+* Raised a topic of connection **across VPC**
+* Team adviced a member who had an issue with moving cluster from public to private subnet
+* Some **deadlines** were defined and the **frontend** part was decided to be done together
