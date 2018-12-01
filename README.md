@@ -39,8 +39,6 @@
 * [Asel - CI/CD Pipeline](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Asel%20Salmenbayeva/Research/CICD%20Pipeline.md)
 
 
-## Weekly Kanban Flow Diagram:
-
 ## Kanban Task Board:
 * [Task Board](https://github.com/nguyensjsu/fa18-281-code-monks/projects/2)
 
@@ -49,4 +47,3 @@
 
 ## MongoDB Cluster:
 ![MongoDB Cluster Image](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Documentation/MongoDB%20Cluster.png)
-      
