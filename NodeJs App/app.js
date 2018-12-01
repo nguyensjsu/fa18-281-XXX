@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var csurf = require('csurf');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
-var Client = require('node-rest-client').Client;
 var secret = require('./config/secret');
 var ejs = require('ejs');
 var engine = require('ejs-mate');
@@ -167,6 +166,73 @@ app.get('/cart', function(request, response) {
 
 app.get('/logout', function(request, response) {
 
+});
+
+app.post('/remove', function(request, response) {
+	var productNameToRemove = request.body.item;
+
+	var dummyCart = cart;
+	for (var i=0; i<dummyCart.Products.length;i++) {
+		var product = dummyCart.Products[i];
+
+		if(product.ProductName === productNameToRemove) {
+			delete dummyCart.Products[i];
+		}
+	}
+
+	var procutArray = dummyCart.Products;
+
+	var filtered = procutArray.filter(function (element) {
+  	return element != null;
+	});
+
+	cart = dummyCart;
+	cart.Products = filtered;
+	cartQuantity = cart.Products.length;
+	updateTheCart(cart, ()=> {
+
+	});
+	response.redirect('/cart');
+});
+
+function caluclateTotal(cart) {
+
+	var totalAmount = 0;
+
+	for (var i=0; i<cart.Products.length; i++) {
+		var productPrice = parseInt(cart.Products[i].Price);
+		var productQuantity = parseInt(cart.Products[i].Quantity);
+
+		totalAmount+=productPrice*productQuantity;
+	}
+
+	cart.Total = totalAmount.toString();
+}
+
+function updateTheCart(cart, callback) {
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("PUT", cartServer+ "carts");
+	xmlhttp.setRequestHeader("Content-Type", "application/json");
+	xmlhttp.send(JSON.stringify(cart));
+
+	xmlhttp.onreadystatechange = function()
+	{
+			if (this.readyState === 4 && this.status === 200) {
+				cart = JSON.parse(this.responseText);
+				cartQuantity = cart.Products.length;
+				callback();
+			}
+	}
+}
+
+app.get('/logout', function(request, response) {
+	updateTheCart(cart, ()=>{
+		isLoggedIn = false;
+		cart = null;
+		cartQuantity = 0;
+		userID = null;
+		response.redirect('/products');
+	});
 });
 
 app.listen(secret.port, function (err) {
