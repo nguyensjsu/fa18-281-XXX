@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/codegangsta/negroni"
@@ -12,7 +13,7 @@ import (
 )
 
 // MongoDB Config
-var mongodb_server = "mongodb://admin:cmpe281@34.215.84.228,54.218.68.217,34.221.156.220,54.201.247.253,54.201.182.68"
+var mongodb_server = "mongodb://admin:cmpe281@54.202.14.83,34.214.186.52,34.221.233.248,54.149.131.94,54.188.133.250"
 
 //var mongodb_server1 string
 //var mongodb_server2 string
@@ -103,15 +104,10 @@ func userHandler(formatter *render.Render) http.HandlerFunc {
 		session.SetMode(mgo.PrimaryPreferred, true)
 		c := session.DB(mongodb_database).C(mongodb_collection)
 
-		var result bson.M
+		var result user
 		err = c.Find(bson.M{"Email": email}).One(&result)
 
-		if result == nil {
-			var noUser user
-			formatter.JSON(w, http.StatusOK, noUser)
-		} else {
-			formatter.JSON(w, http.StatusOK, result)
-		}
+		formatter.JSON(w, http.StatusOK, result)
 	}
 }
 
@@ -135,6 +131,8 @@ func userSignUpHandler(formatter *render.Render) http.HandlerFunc {
 			formatter.JSON(w, http.StatusBadRequest, "Invalid request payload")
 			return
 		}
+
+		fmt.Println(newUser)
 
 		newUser.UserID = bson.NewObjectId()
 
@@ -180,7 +178,7 @@ func deleteUserHandler(formatter *render.Render) http.HandlerFunc {
 	}
 }
 
-// API  Handler --------------- Update the user (DELETE) ------------------
+// API  Handler --------------- Update the user (PUT) ------------------
 func updateUserHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 

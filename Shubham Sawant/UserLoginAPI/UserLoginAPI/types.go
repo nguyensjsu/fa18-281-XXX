@@ -8,4 +8,5 @@ type user struct {
 	Email    string        `bson:"Email" json:"Email"`
 	Address  string        `bson:"Address" json:"Address"`
 	Password string        `bson:"Password" json:"Password"`
+	CartID   string        `bson:"CartID" json:"CartID"`
 }
