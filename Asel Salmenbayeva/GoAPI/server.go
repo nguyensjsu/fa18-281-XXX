@@ -1,10 +1,7 @@
 package main
 import (
-	
-	
 	"log"
 	"net/http"
-
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
 	"github.com/rs/xid"
@@ -12,7 +9,7 @@ import (
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
-var mongodb_server = "mongodb://admin:cmpe281@52.36.162.29"
+var mongodb_server = "mongodb://admin:admin@10.0.2.249"
 var mongodb_database = "TeamProject1"
 var mongodb_collection = "payment"
 func NewServer() *negroni.Negroni {
