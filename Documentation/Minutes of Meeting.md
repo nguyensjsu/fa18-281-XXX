@@ -60,3 +60,20 @@
 * The team decided on functional split each member will work on from next week.
 * Several discussions about the the backend MongoDB cluster setup and the architecture.
 * Decided the team agenda for the next meeting.
+
+# Week 4:
+<b>Date:</b> 11/20/2018  
+<b>Time:</b> 5:00 pm  
+<b>Place:</b> Conference Call via Google Meet
+
+<b>Members Present: </b> 
+1. Nitish
+2. Shubham
+3. Rohan
+4. Vrushali
+5. Asel
+6. Yicheng
+
+## Meeting Purpose: _Discuss the weekly progress_
+* The team discussed the progress of every team member and if anyone faced any blockers/issues.
+* The team also discussed the core agile values assigned to each team member and it's impact on the progress of the project.
