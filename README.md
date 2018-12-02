@@ -23,6 +23,7 @@
 
 * [User Login/Signup](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Shubham%20Sawant/UserLoginAPI) - Shubham
 * [Cart API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Rohan%20Kamat/mongoGOapi) -Rohan
+* [Product API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Yicheng%20Li/productAPI)
 * [Reviews API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Rohan%20Kamat/mongoGOapi) -Vrushali
 
 
@@ -36,6 +37,7 @@
 
 * [Rohan -> REDIS ](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Documentation/REDIS.md)
 
+* [Yicheng -> AWS Lamba](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Yicheng%20Li/Research/Research.md)
 * [Asel - CI/CD Pipeline](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Asel%20Salmenbayeva/Research/CICD%20Pipeline.md)
 
 
