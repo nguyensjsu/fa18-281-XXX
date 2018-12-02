@@ -18,3 +18,7 @@
 * The team also discussed about the various possible APIs that can be implemented within the application and every team member pitched in with their ideas and APIs which was appreciated equally by everyone.
 * One of the team member highlighted the importance of frequent commits and proper documentation for all the research work done by each team member and this input was positively taken into consideration by all the members.
 * Feedbacks about the time constraints each team member has, was taken into account and the team was prepared to help each other with the assigned tasks.
+
+## Week 4:
+* The team members provided feedback on the progress of the APIs assigned and the overall progress of the project work.
+* Each team member shared their work and received feedback from other members.
