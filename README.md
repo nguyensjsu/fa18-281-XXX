@@ -22,9 +22,10 @@
 ## Project Modules:
 
 * [User Login/Signup](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Shubham%20Sawant/UserLoginAPI) - Shubham
-* [Cart API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Rohan%20Kamat/mongoGOapi) -Rohan
-* [Product API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Yicheng%20Li/productAPI)
-* [Reviews API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Rohan%20Kamat/mongoGOapi) -Vrushali
+* [Cart API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Rohan%20Kamat/mongoGOapi) - Rohan
+* [Product API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Yicheng%20Li/productAPI) - Yicheng
+* [Order API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Nitish%20Joshi/OrderAPI) - Nitish
+* [Reviews API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Rohan%20Kamat/mongoGOapi) - Vrushali
 
 
 ## Project Research:
