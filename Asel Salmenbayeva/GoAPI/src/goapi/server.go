@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
@@ -13,9 +12,9 @@ import (
 )
 
 // MongoDB Config
-var mongodb_server = "mongodb://admin:cmpe281@34.218.49.89,34.222.25.145,34.220.58.107,54.244.72.53,34.220.240.114"
+var mongodb_server = "mongodb://admin:admin@10.0.2.249,10.0.1.16,10.0.2.116,10.1.2.197,10.1.1.207"
 
-var mongodb_database = "TeamProject"
+var mongodb_database = "cmpe281"
 var mongodb_collection = "payment"
 
 // NewServer configures and returns a Server.
