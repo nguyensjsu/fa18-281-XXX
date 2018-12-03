@@ -13,7 +13,6 @@ import (
 
 // MongoDB Config
 var mongodb_server = "mongodb://admin:admin@10.0.2.249,10.0.1.16,10.0.2.116,10.1.2.197,10.1.1.207"
-
 var mongodb_database = "cmpe281"
 var mongodb_collection = "payment"
 
@@ -22,14 +21,6 @@ func NewServer() *negroni.Negroni {
 	formatter := render.New(render.Options{
 		IndentJSON: true,
 	})
-
-	//mongodb_server = os.Getenv("MONGO1")
-	//mongodb_server1 = os.Getenv("MONGO2")
-	//mongodb_server2 = os.Getenv("MONGO3")
-	//mongodb_database = os.Getenv("MONGO_DB")
-	//mongodb_collection = os.Getenv("MONGO_COLLECTION")
-	//redis_server = os.Getenv("REDIS")
-
 	n := negroni.Classic()
 	mx := mux.NewRouter()
 	initRoutes(mx, formatter)
@@ -46,6 +37,7 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/payments/updateThePaymentStatus/{paymentid}", updatePaymentStatusHandler(formatter)).Methods("PUT")
 	mx.HandleFunc("/payments/{paymentid}", deletePaymentHandler(formatter)).Methods("DELETE")
 	mx.HandleFunc("/payments", updatePaymentHandler(formatter)).Methods("PUT")
+	mx.HandleFunc("/payments/paymentfromorder/{orderid}", getPaymentFromOrderIDHandler(formatter)).Methods("GET")
 }
 
 // API Ping Handler
@@ -254,5 +246,32 @@ func updatePaymentStatusHandler(formatter *render.Render) http.HandlerFunc {
 
 		formatter.JSON(w, http.StatusOK, updatedPayment)
 
+	}
+}
+
+// API  Handler --------------- Get the payment info (GET) ------------------
+func getPaymentFromOrderIDHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+
+		vars := mux.Vars(req)
+		orderid := vars["orderid"]
+
+		session, err := mgo.Dial(mongodb_server)
+		if err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		defer session.Close()
+		session.SetMode(mgo.PrimaryPreferred, true)
+		c := session.DB(mongodb_database).C(mongodb_collection)
+
+		var result Payment
+		if err = c.Find(bson.M{"OrderID": orderid}).One(&result); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		formatter.JSON(w, http.StatusOK, result)
 	}
 }
