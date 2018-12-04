@@ -77,3 +77,23 @@
 ## Meeting Purpose: _Discuss the weekly progress_
 * The team discussed the progress of every team member and if anyone faced any blockers/issues.
 * The team also discussed the core agile values assigned to each team member and it's impact on the progress of the project.
+
+# Week 5:
+<b>Date:</b> 11/27/2018  
+<b>Time:</b> 11:00 pm  
+<b>Place:</b> MLK Library, San Jose State University 
+
+<b>Members Present: </b> 
+1. Nitish
+2. Shubham
+3. Rohan
+4. Vrushali
+5. Asel
+6. Yicheng
+
+## Meeting Purpose: _Discuss the weekly progress_
+* Discussed about the difficulties and challenges that every team member faced for the implementation.
+* Discussed the ongoing issues faced while implementing the GO APIs for every module. 
+* A target date was set to complete the GO API functionality before the next meeting.
+* Tested and verified the MongoDB cluster setup of every team member created using VPC peering technique.
+
