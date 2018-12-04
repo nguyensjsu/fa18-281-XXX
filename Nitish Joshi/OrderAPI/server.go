@@ -13,7 +13,7 @@ import (
 )
 
 // MongoDB Config
-var mongodb_server = "mongodb://admin:cmpe281@54.202.14.83,34.214.186.52,34.221.233.248,54.149.131.94,54.188.133.250"
+var mongodb_server = "mongodb://admin:cmpe281@10.0.1.249,10.0.1.9,10.0.1.84,11.0.1.237,11.0.1.54"
 
 //var mongodb_server1 string
 //var mongodb_server2 string
@@ -52,7 +52,7 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/orders", newOrderHandler(formatter)).Methods("POST")
 	mx.HandleFunc("/orders/{orderid}", deleteOrderHandler(formatter)).Methods("DELETE")
 	mx.HandleFunc("/orders", updateOrderHandler(formatter)).Methods("PUT")
-
+	mx.HandleFunc("/orders/updateorderstatus/{orderid}", updateOrderStatusHandler(formatter)).Methods("PUT")
 }
 
 // API Ping Handler
@@ -142,6 +142,7 @@ func newOrderHandler(formatter *render.Render) http.HandlerFunc {
 
 		newOrder.OrderID = bson.NewObjectId()
 		newOrder.OrderStatus = "Order has been placed!!"
+		newOrder.PaymentStatus = "Pending"
 
 		if err := c.Insert(&newOrder); err != nil {
 			formatter.JSON(w, http.StatusInternalServerError, err.Error())
@@ -230,3 +231,48 @@ func updateOrderHandler(formatter *render.Render) http.HandlerFunc {
 
 	}
 }
+
+// API  Handler --------------- Update the order status (PUT) ------------------
+func updateOrderStatusHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+
+		vars := mux.Vars(req)
+		orderid := vars["orderid"]
+
+		session, err := mgo.Dial(mongodb_server)
+
+		if err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		defer session.Close()
+		session.SetMode(mgo.PrimaryPreferred, true)
+		c := session.DB(mongodb_database).C(mongodb_collection)
+
+		var result Order
+		if err = c.FindId(bson.ObjectIdHex(orderid)).One(&result); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		result.OrderStatus = "Order has been dispatched!!"
+		result.PaymentStatus = "Payment received"
+
+		if err := c.UpdateId(result.OrderID, &result); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		var updatedOrder Order
+
+		if err = c.FindId(result.OrderID).One(&updatedOrder); err != nil {
+			formatter.JSON(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		formatter.JSON(w, http.StatusOK, updatedOrder)
+
+	}
+}
+
