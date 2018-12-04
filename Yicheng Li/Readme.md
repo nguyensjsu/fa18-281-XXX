@@ -20,4 +20,12 @@
 ## Week 4
 ### Finish GoAPI
 - [x] 1. Finish Product GoAPI includes getProductById, getAllProduct, add or delete a product by ID.
-- [-] 2. Configure VPC Peering structure
+- [x] 2. Configure VPC Peering structure
+
+## Week 5
+### Set up peering network
+- [x] Bring up three vpc in three regions. Two for MongoDB(Cal, Oregon), one for GoAPI(Ohio).
+- [x] Set up MongoDB cluster in peering network.
+- [x] Deploy ProductAPI on Region Ohio.
+- [x] Setup ELB for two instances of ProductAPI.
+- [-] Upload product data

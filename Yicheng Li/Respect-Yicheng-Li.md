@@ -23,3 +23,7 @@
 
 * We came up with new architecture for our project; we put mongoDB into private subnet instead of public subnets. We will try to achieve our mongoDB available in two different regions.
 * We meet and discuss our individual progress and set up new deadline.
+
+## Week 5
+
+* This week, we are setting up our backend architecture. Three region connected to each other using VPC peering. One of our teammates researches on this part, educates and helps out other teammates during group meeting. We respect each teammate has different knowledge background and stands out for each other.

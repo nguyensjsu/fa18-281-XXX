@@ -13,11 +13,7 @@ import (
 )
 
 // MongoDB Config
-// var mongodb_server = "mongodb://admin:cmpe281@34.215.84.228,54.218.68.217,34.221.156.220,54.201.247.253,54.201.182.68"
-var mongodb_server = "mongodb://admin:cmpe281@13.57.205.102"
-//var mongodb_server1 string
-//var mongodb_server2 string
-//var redis_server string
+var mongodb_server = "mongodb://admin:cmpe281@10.0.1.39,10.0.1.190,10.0.3.176,11.0.1.200,11.0.1.247"
 
 var mongodb_database = "TeamProject"
 var mongodb_collection = "products"
@@ -27,13 +23,6 @@ func NewServer() *negroni.Negroni {
 	formatter := render.New(render.Options{
 		IndentJSON: true,
 	})
-
-	//mongodb_server = os.Getenv("MONGO1")
-	//mongodb_server1 = os.Getenv("MONGO2")
-	//mongodb_server2 = os.Getenv("MONGO3")
-	//mongodb_database = os.Getenv("MONGO_DB")
-	//mongodb_collection = os.Getenv("MONGO_COLLECTION")
-	//redis_server = os.Getenv("REDIS")
 
 	n := negroni.Classic()
 	mx := mux.NewRouter()
