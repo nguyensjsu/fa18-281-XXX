@@ -16,4 +16,5 @@ type Order struct {
 	Total       string        `bson:"Total" json:"Total"`
 	Products    []Product     `bson:"Products" json:"Products"`
 	OrderStatus string        `bson:"OrderStatus" json:"OrderStatus"`
+	PaymentStatus string      `bson:"PaymentStatus" json:"PaymentStatus"`
 }
