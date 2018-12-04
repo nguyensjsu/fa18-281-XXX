@@ -22,3 +22,8 @@
 ## Week 4:
 * The team members provided feedback on the progress of the APIs assigned and the overall progress of the project work.
 * Each team member shared their work and received feedback from other members.
+
+## Week 5:
+* The team made sure every team member was on the same page with respect to the MongoDB cluster setup and provided a positive feedback and troubleshooting techniques to those members lagging behind.
+* The team also discussed and provided effective feedback on the ongoing GO API implementation and various challenges faced.
+
