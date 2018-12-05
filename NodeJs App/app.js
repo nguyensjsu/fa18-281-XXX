@@ -17,7 +17,7 @@ app.use(session({
 	secret: 'guessTheSecret',
 	resave: false,
 	saveUninitialiazed: false,
-	cookie: { maxAge: 180 * 60 * 1000} //in milliseconds
+	cookie: { maxAge: 180 * 60 * 1000}
 }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,8 +27,8 @@ app.use(express.static(__dirname + '/public'));
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 
-var userloginServer = "http://localhost:5000/"
-var productCatalogueServer = "http://localhost:5001/"
+var userloginServer = "http://teamprojectuserlogin-291444453.us-east-2.elb.amazonaws.com/";
+var productCatalogueServer = "http://Productelb-1814563480.us-east-2.elb.amazonaws.com:3000/";
 
 var isLoggedIn = false;
 var cartQuantity = 0;
@@ -38,9 +38,6 @@ cart.items = [];
 cart.total = 0;
 
 app.get('/signin', function(request, response) {
-	/*if (request.session.userid) {
-		return response.redirect("/");
-	}*/
 	response.render('user/login',  {login: isLoggedIn, cartQuantity: 0});
 });
 
@@ -120,7 +117,6 @@ app.get('/', function(request, response){
 			response.render('./main/catalog', {products: products_array, login: isLoggedIn, cartQuantity: 0});
 		}
 	}
-	//response.render('user/login', {login:isLoggedIn, cartQuantity: 0});
 });
 
 app.get('/products', function(request, response) {
