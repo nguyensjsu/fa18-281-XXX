@@ -27,3 +27,10 @@
 * Also they come up with a new idea of VPC peering. Now we can setup our mongoDB instances in 2 different regions.
 * Decided the approach to be taken for the remaining things. Finalized the database shcema for each API and assigned it to the team members.
 * Team has decided to complete the assigned GoAPI in a week. Everyone is confident about meeting the deadlines.
+
+## Week 4
+
+* All teammates setup their VPC Peering connection for mongoDB and GoAPI. Now our connections are spread across 3 different regions.
+* Team has decided to work on the frontend app. Everyone decided to complete it by this week. From next week onwards we will be doing testing and demo preparation.
+
+## Week 5
