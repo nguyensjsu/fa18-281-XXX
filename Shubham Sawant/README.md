@@ -23,3 +23,13 @@
 
 ## Week 4
 ### Deploy the GoAPI and start working on fronted NodeJs app
+- [x] 1. Deploy the GOAPI on ec2 instance using docker compose.
+- [x] 2. Setup load balancer for GoAPIs.
+- [x] 3. Start working on NodeJS frontend app.
+- [x] 4. Discuss the frontend dependencies with other teammates.
+
+## Week 5
+### Start integrating the NodeJS app and start testing
+- [x] 1. Integrate nodeJS app with other teammates and start basic sanity testing.
+- [x] 2. Try various corner cases where app might fail.
+- [x] 3. Fix those issues and get ready with final application. 
