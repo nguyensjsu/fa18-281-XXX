@@ -1,4 +1,4 @@
-# Project Name:
+# Project Name: BurgerKing (Online Burger Ordering System)
 
 ## Team Members:
 * Asel Salmenbayeva
