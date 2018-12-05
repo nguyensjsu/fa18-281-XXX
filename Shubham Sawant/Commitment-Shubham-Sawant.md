@@ -34,3 +34,6 @@
 * Team has decided to work on the frontend app. Everyone decided to complete it by this week. From next week onwards we will be doing testing and demo preparation.
 
 ## Week 5
+
+* Every teammate completed their part of frontend. There were some glitches and respective person decided to get rid of it. We are going to deploy the application on heroku cloud. For that we asked Pranav (TA) to give one of us Admin access of the repo.
+* Team decided to meet again this week to do sanity check and demo preparation.
