@@ -7,27 +7,21 @@
         </div>
 
         <div class="col-md-4">
-            <h3><%= product.Name %></h3>
-            <h1><%= product.Price %></h1>
-            <p class="lead">product.ProductDesc</p>
+            <h3><%= product.ProductName %></h3>
+            <h1>$<%= product.Price %></h1>
+            <p class="lead"><%= product.ProductDesc %></p>
 
             <form method="post">
                 <div class="btn-group" role="group" aria-label="...">
-                    <input type="hidden" name="quantity" id="quantity" value="1">
-                    <button type="button" id="minus" class="btn btn-default">-</button>
-                    <button type="button" id="total" class="btn btn-default">1</button>
-                    <button type="button" id="plus" class="btn btn-default">+</button>
-
+                    <input type="text" name="quantity" id="quantity" placeholder="Quantity" required>
                 </div>
 
                 <div class="form-group">
                     <input type="hidden" name="product_id" id="quantity" value="<%= product.ProductID %>">
-                    <input type="hidden" name="priceHidden" id="priceHidden" value="<%= product
-                            .Price %>">
+                    <input type="hidden" name="priceHidden" id="priceHidden" value="<%= product.Price %>">
 
-                    <input type="hidden" name="item" class="form-control" value="<%= product.Name %>">
-                    <input type="text" id="priceValue" name="priceValue" class="form-control" value="<%= product.Price
-                    %>">
+                    <input type="hidden" name="item" class="form-control" value="<%= product.ProductName %>">
+                    <input type="text" id="priceValue" name="priceValue" class="form-control" value="$<%= product.Price%>" readonly>
                 </div>
 
                 <% if(login) { %>

@@ -6,24 +6,24 @@
 
             <h2>Your Shopping Cart</h2>
 
-            <% for (var i = 0; i < foundCart.items.length; i++) { %>
+            <% for (var i = 0; i < foundCart.Products.length; i++) { %>
             <div class="list-group">
             <span class="list-group-item">
               <div class="row">
                 <div class="col-md-3">
-                  <span><img class="product-image" src="<%= foundCart.items[i].item.image %>"></span>
+                  <span><img class="product-image" src="<%= foundCart.Products[i].Image %>"></span>
                 </div>
 
                 <div class="col-md-6">
-                  <p class="list-group-item-heading"><%= foundCart.items[i].item.name %></p>
+                  <p class="list-group-item-heading"><%= foundCart.Products[i].ProductName %></p>
                 </div>
                 <div class="col-md-3">
-                  <p><%= foundCart.items[i].quantity %></p>
-                  <p><%= foundCart.items[i].price %></p>
+                  <p>Quantity: <%= foundCart.Products[i].Quantity %></p>
+                  <p>Price: <%= foundCart.Products[i].Price %></p>
 
                   <form method="post" action="/remove">
-                    <input type="hidden" name="item" value="<%= foundCart.items[i]._id %>">
-                    <input type="hidden" name="price" value="<%= foundCart.items[i].price %>">
+                    <input type="hidden" name="item" value="<%= foundCart.Products[i].ProductName %>">
+                    <input type="hidden" name="price" value="<%= foundCart.Products[i].Price %>">
                     <button type="submit" type="button">Remove</button>
                   </form>
                 </div>
@@ -42,12 +42,13 @@
             <h2>Your orders</h2>
             <div class="list-group">
                 <span class="list-group-item">
-                    <h4>Total $<span class="totalPrice"><%= foundCart.total %></span></h4>
+                    <h4>Total $<span class="totalPrice"><%= foundCart.Total %></span></h4>
 
                     <div class="form-group">
+                      <form method="POST" action="/order">
                         <input type="hidden" value="<%= foundCart.total %>">
-                        <button type="submit" class="btn btn-primary btn-lg" data-toggle="modal"
-                                data-target="#myModal">Pay now</button>
+                        <button type="submit" class="btn btn-primary btn-lg" data-toggle="modal"> Order now </button>
+                        </form>
                     </div>
                 </span>
             </div>
@@ -73,14 +74,14 @@
 
                             <div class="modal-body">
                                 <form action="/payment" method="POST" id="payment-form">
-                                    <input type="hidden" name="stripeMoney" value="<%= foundCart.total %>">
+                                    <input type="hidden" name="total" value="<%= foundCart.Total %>">
                                     <span class="payment-errors"></span>
 
                                     <div class="form-row form-group">
                                         <label>
                                             <span>Card Number</span>
                                             <div class="input-group">
-                                                <input class="form-control" type="text" size="20" data-stripe="number"
+                                                <input class="form-control" type="text" size="20" data-stripe="number" name="cardNumber"
                                                        required autofocus>
                                                 <span class="input-group-addon"><i
                                                             class="glyphicon glyphicon-credit-card"></i></span>
@@ -92,10 +93,10 @@
                                         <label>
                                             <span>Expiration date</span>
                                             <div class="input-group form-inline">
-                                                <input placeholder="MM" class="form-control" type="text"
+                                                <input placeholder="MM" class="form-control" type="text" name="expMonth"
                                                        data-stripe="exp_month" required>
                                                 <div class="input-group-addon">/</div>
-                                                <input placeholder="YY" class="form-control" type="text"
+                                                <input placeholder="YY" class="form-control" type="text" name="expYear"
                                                        data-stripe="exp_year" required>
                                             </div>
                                         </label>
@@ -104,13 +105,13 @@
                                     <div class="form-row form-group">
                                         <label>
                                             <span>CVC</span>
-                                            <input class="form-control" type="text" size="4" maxlength="3"
+                                            <input class="form-control" type="text" size="4" maxlength="3" name="cvv"
                                                    data-stripe="cvc" required>
                                         </label>
                                     </div>
                                     <div class="form-row">
                                         <input type="submit" class="submit btn btn-primary btn-lg"
-                                               value="Pay $<%= foundCart.total
+                                               value="Pay $<%= foundCart.Total
                                                %>">
                                     </div>
                                 </form>
