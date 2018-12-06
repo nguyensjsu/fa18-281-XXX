@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 var userloginServer = "http://teamProjectlb-349932868.us-east-2.elb.amazonaws.com:8080/";//"http://192.168.99.100:5000/"
 var productCatalogueServer = "http://Productelb-1814563480.us-east-2.elb.amazonaws.com:3000/";//"http://192.168.99.100:5001/"
 var cartServer = "http://teamprojectcart-844108558.us-west-1.elb.amazonaws.com:8080/";//"http://192.168.99.100:5002/"
-var orderServer = "http://OrderELB-511037002.us-east-2.elb.amazonaws.com:80/";//"http://192.168.99.100:5003/""http://orderapi-1735855588.us-east-1.elb.amazonaws.com:80/";//
+var orderServer = "http://OrderELB-1768727271.us-east-2.elb.amazonaws.com:80/";//"http://192.168.99.100:5003/""http://orderapi-1735855588.us-east-1.elb.amazonaws.com:80/";//
 var paymentServer = "http://PaymentAPI-705203207.us-east-2.elb.amazonaws.com:5004/";//"http://192.168.99.100:5004/"
 
 var userID = null;
