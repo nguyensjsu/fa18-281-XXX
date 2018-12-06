@@ -15,9 +15,13 @@ The research done in previous meeting was evaluated, being a 6 six member team i
 ### Courage shown in Week 3
 ______________________________________________________________________________
 The previously done work was evaluated , there were some issues with the review api, a decision had to be made whether to keep it as a specific product or generic, so courage was shown by considering the former idea. Whilest developing the Cart API so I showed courage by explaining a blocker I was experiencing, could not figure out put route.The redis integration was decided as it was my part, which was tested using redis on docker. The challenge was to integrate redis in such a way that if no data is present in redis, mongo should be hit. Courage was shown by accepting the challenge.
+
 ### Courage shown in Week 4
 ______________________________________________________________________________
 There was a challenge faced as to decide whether the network should have been setup in private or public, being somewhat difficult yet private was chosen.Another issue was considering multiple regions to setup the network,courage was shown by me by taking initiative and trying to setup up the network and create a file for the steps.
 
+### Courage shown in week 5
+______________________________________________________________________________
+All the GO APIs were tested thouroughly, realized that Ohio region had high latency compared to others, the order API took time to respond. Nitish taking full responsibility showed courage and reconfigured entire network in the new Region.An initiative was taken by Shubham to try to run Nodejs app on elastic beanstalk.
 
 
