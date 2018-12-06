@@ -24,4 +24,8 @@ There was a challenge faced as to decide whether the network should have been se
 ______________________________________________________________________________
 All the GO APIs were tested thouroughly, realized that Ohio region had high latency compared to others, the order API took time to respond. Nitish taking full responsibility showed courage and reconfigured entire network in the new Region.An initiative was taken by Shubham to try to run Nodejs app on elastic beanstalk.
 
+### Courage shown in week 6
+______________________________________________________________________________
+The App was thouroughly tested , there were minor issues where the front end wasnt working when deployed in heroku, which panicked everyone ,Shubham showed courage by patiently solving the issue , in the meanwhile there were some dummy values required in the database.Nitish showed courage by taking the initiative of doing the needfull.
+
 
