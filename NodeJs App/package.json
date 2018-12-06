@@ -1,6 +1,10 @@
 {
-  "name": "",
+  "name": "onlineburgerapplication",
   "version": "",
+  "main":"app.js",
+  "engines": {
+    "node": "8.11.4"
+  },
   "dependencies": {
     "async-waterfall": "^0.1.5",
     "axios": "^0.18.0",
@@ -15,5 +19,9 @@
     "node-rest-client": "^3.1.0",
     "path": "^0.12.7",
     "xmlhttprequest": "^1.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   }
 }

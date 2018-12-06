@@ -617,7 +617,13 @@ function updateThePaymentStatus(request, callback) {
 	}
 }
 
-app.listen(secret.port, function (err) {
-    if (err) throw err;
-    console.log('Server is listening on port ' + secret.port + '!');
+app.set('port', (process.env.PORT || 3000));
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
+
+// app.listen(process.env.PORT, function (err) {
+//     if (err) throw err;
+//     console.log('Server is listening on port ' + process.env.PORT + '!');
+// });
