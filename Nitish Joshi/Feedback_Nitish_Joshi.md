@@ -27,3 +27,8 @@
 * The team made sure every team member was on the same page with respect to the MongoDB cluster setup and provided a positive feedback and troubleshooting techniques to those members lagging behind.
 * The team also discussed and provided effective feedback on the ongoing GO API implementation and various challenges faced.
 
+## Week 6:
+* The team members provided their valuable feedback for the GO APIs developed.
+* The team made sure everyone was on the same page and provided individual feedback as well.
+
+

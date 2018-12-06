@@ -32,4 +32,8 @@
 ### Start integrating the NodeJS app and start testing
 - [x] 1. Integrate nodeJS app with other teammates and start basic sanity testing.
 - [x] 2. Try various corner cases where app might fail.
+<<<<<<< HEAD
 - [x] 3. Fix those issues and get ready with final application.
+=======
+- [x] 3. Fix those issues and get ready with final application. 
+>>>>>>> 6486463a7348a09c407bd1f95859c45f5878cdf8
