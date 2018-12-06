@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <% layout('layout') -%>
 
 
@@ -27,33 +26,3 @@
 </div>
 </div>
 </div>
-=======
-<% layout('layout') -%>
-
-
-<div class="container-fluid">
-<div class="row">
-<div class="col-md-8 col-md-offset-2">
-    <h2>Your Orders</h2>
-
-    <table class ="table table-striped">
-
-	    <tr><th scope="column">Order</th><th scope="column">Order Status</th><th scope="column">Payment Status</th>
-	    </tr>
-
-		    <% for(var i=0; i < orders.length; i++) { %>
-
-
-	    <tr>
-		    <td> <a href="/vieworder/<%= orders[i].OrderID %>"> <%=  orders[i].OrderID %> </a>&nbsp;&nbsp;</td>
-		    <td> <%=  orders[i].OrderStatus %> &nbsp;&nbsp;</td>
-		    <td> <%=  orders[i].PaymentStatus %>&nbsp;&nbsp;</td>
-      </tr>
-
-		 <% } %>
-
-      </table>
-</div>
-</div>
-</div>
->>>>>>> 6486463a7348a09c407bd1f95859c45f5878cdf8
