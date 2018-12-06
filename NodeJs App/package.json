@@ -2,6 +2,7 @@
   "name": "",
   "version": "",
   "dependencies": {
+    "async-waterfall": "^0.1.5",
     "axios": "^0.18.0",
     "cookie-parser": "^1.4.3",
     "csurf": "^1.9.0",
