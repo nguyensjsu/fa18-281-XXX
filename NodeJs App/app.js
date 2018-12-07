@@ -24,11 +24,11 @@ app.use(express.static(__dirname + '/public'));
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 
-var userloginServer = "http://teamProjectlb-349932868.us-east-2.elb.amazonaws.com:8080/";//"http://192.168.99.100:5000/"
+var userloginServer = "http://userelb-953071862.us-west-2.elb.amazonaws.com:8000/";//"http://192.168.99.100:5000/"
 var productCatalogueServer = "http://Productelb-1814563480.us-east-2.elb.amazonaws.com:3000/";//"http://192.168.99.100:5001/"
 var cartServer = "http://teamprojectcart-844108558.us-west-1.elb.amazonaws.com:8080/";//"http://192.168.99.100:5002/"
-var orderServer = "http://OrderELB-1768727271.us-east-2.elb.amazonaws.com:80/";//"http://192.168.99.100:5003/""http://orderapi-1735855588.us-east-1.elb.amazonaws.com:80/";//
-var paymentServer = "http://PaymentAPI-705203207.us-east-2.elb.amazonaws.com:5004/";//"http://192.168.99.100:5004/"
+var orderServer = "http://OrderELB-1022674798.us-west-1.elb.amazonaws.com:80/";//"http://192.168.99.100:5003/""http://orderapi-1735855588.us-east-1.elb.amazonaws.com:80/";//
+var paymentServer = "http://Payment-API-1319694113.us-east-1.elb.amazonaws.com:5004/";//"http://192.168.99.100:5004/"
 
 var userID = null;
 var isLoggedIn = false;
