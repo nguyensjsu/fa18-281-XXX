@@ -22,4 +22,12 @@ In a week’s time, the team should create and assign user stories, code to deve
 + Additionally, 2 tasks were identified:
 1) Would integrating APIs using MongoDB clusters in different private networks (and different VPCs) into a single application cause any   problems?
 2) How can we make databases that lie within different networks exchange data with each other. For example, how can we pass information of items added in a cart (Cart API) to 'Payment' API?
+
+###### Week 5:
+###### Team met and helped each other out with the setup for:
++ Dockers that'd contain GO APIs for individual API written by every member
++ VPC peering to connect machines that are setup accross AZ's and regions
++ Setting up public facing loadbalancer to connect to MongoDB cluster
+
++ Plan was made to meet next time with finsihed frontend and integrate the code 
   

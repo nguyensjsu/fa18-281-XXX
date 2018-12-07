@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <img src="<%= product.Image %>">
+            <img src="<%= product.Image %>" style="width:600px;height:500px;" class="border">
         </div>
 
         <div class="col-md-4">
@@ -11,19 +11,16 @@
             <h1>$<%= product.Price %></h1>
             <p class="lead"><%= product.ProductDesc %></p>
 
-            <form method="post">
-                <div class="btn-group" role="group" aria-label="...">
-                    <input type="text" name="quantity" id="quantity" placeholder="Quantity" required>
-                </div>
+            <form method="post" >
 
-                <div class="form-group">
-                    <input type="hidden" name="product_id" id="quantity" value="<%= product.ProductID %>">
-                    <input type="hidden" name="priceHidden" id="priceHidden" value="<%= product.Price %>">
+                     <input type="text" name="quantity" id="quantity"  class="form-control border border-dark"  placeholder="Quantity" required>
+                     <input type="hidden" name="product_id" id="quantity"   class="form-control" value="<%= product.ProductID %>">
+                     <input type="hidden" name="priceHidden" id="priceHidden"  class="form-control" value="<%= product.Price %>">
+                     <input type="hidden" name="item" class="form-control" value="<%= product.ProductName %>">
+                       <p class="mt-2"></p>
+                     <!-- <input type="text" id="priceValue"  name="priceValue"  style="border: none;  background: transparent; border-color: transparent;" value="$<%= product.Price%>" readonly> -->
 
-                    <input type="hidden" name="item" class="form-control" value="<%= product.ProductName %>">
-                    <input type="text" id="priceValue" name="priceValue" class="form-control" value="$<%= product.Price%>" readonly>
-                </div>
-
+                        <p class="mt-5"></p>
                 <% if(login) { %>
                     <button type="submit" class="btn btn-primary btn-lg">Add to cart</button>
                 <% } else { %>
