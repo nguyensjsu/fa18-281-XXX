@@ -44,6 +44,8 @@
 
 * [Asel -> CI/CD Pipeline](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Asel%20Salmenbayeva/Research/CICD%20Pipeline.md)
 
+* [Kubernetes-Dashboard on Bitnami Instance](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Rohan%20Kamat/KubernetesDashboard%20on%20Bitnami.md)
+
 
 ## Kanban Task Board:
 * [Task Board](https://github.com/nguyensjsu/fa18-281-code-monks/projects/2)
