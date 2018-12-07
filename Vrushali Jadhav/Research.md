@@ -6,7 +6,7 @@ Kong is a scalable, open source API Gateway. Kong runs in front of any RESTful A
 
 1.1 Kong Architecture:
 
-Kong is on top of NGINX built using the openResty framework.
+![Kong is on top of NGINX built using the openResty framework.](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Vrushali%20Jadhav/kong.PNG)
 
 Kong has two types of users. They are:
 
@@ -52,7 +52,8 @@ Example: Rate-Limiting is a plugin which allows you to set rate limiting to your
 2. Amazon API Gateway:
 Amazon API Gateway is an AWS service that enables developers to create, publish, maintain, monitor, and secure APIs at any scale. You can create APIs that access AWS or other web services, as well as data stored in the AWS cloud.
 
-                                               Figure3: Amazon API Gateway Work Flow
+![Amazon gateway workflow](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Vrushali%20Jadhav/amazon%20gateway.PNG)
+
 3. Features Provided by Kong and Amazon API Gateway
 Both gateways acts as a layer between the end user and upstream API or services.The common features provided by both Kong and Amazon API Gateway are:
 
