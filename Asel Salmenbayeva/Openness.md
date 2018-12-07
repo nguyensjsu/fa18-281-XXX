@@ -20,3 +20,11 @@ One of the agile core values, Openness, as stated in Manifesto *"individuals and
 * Raised a topic of connection **across VPC**
 * Team adviced a member who had an issue with moving cluster from public to private subnet
 * Some **deadlines** were defined and the **frontend** part was decided to be done together
+
+## Week 4:
+* Team discussed **GoAPIs** assigned to each of them and shared troubles encountered
+* **Deadlines** for GoAPIs to finish and start integrating were assigned
+
+## Week 5:
+* Team members having troubles with their personal tasks were provided help and advice from others
+* The need of **additional methods** was raised
