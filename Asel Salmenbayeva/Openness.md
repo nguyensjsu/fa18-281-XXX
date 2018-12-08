@@ -28,3 +28,8 @@ One of the agile core values, Openness, as stated in Manifesto *"individuals and
 ## Week 5:
 * Team members having troubles with their personal tasks were provided help and advice from others
 * The need of **additional methods** was raised
+* Team integrated GoAPIs and started to develop **NodeJs** frontend part
+
+## Week 6:
+* Team **finalized** the application
+* Everyone's performance on **presentation** was discussed
