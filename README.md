@@ -31,7 +31,7 @@
 
 ## Project Research:
 
-* [Shubham -> Kubernetes on AWS (NodePort Service)]()
+* [Shubham -> Kubernetes on AWS (NodePort Service)](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Research/Kubernetes%20on%20AWS%20(NodePort).md)
 
 * [Shubham -> AWS Lambda and Amazon API Gateway](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Research/AWS%20Lambda.md)
 
