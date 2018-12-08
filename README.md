@@ -25,6 +25,7 @@
 * [Cart API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Rohan%20Kamat/mongoGOapi) - Rohan
 * [Product API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Yicheng%20Li/productAPI) - Yicheng
 * [Order API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Nitish%20Joshi/OrderAPI) - Nitish
+* [Payment API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Asel%20Salmenbayeva/GoAPI) - Asel
 * [Reviews API](https://github.com/nguyensjsu/fa18-281-code-monks/tree/master/Vrushali%20Jadhav/ReviewGOAPI/src/Review) - Vrushali
 
 
