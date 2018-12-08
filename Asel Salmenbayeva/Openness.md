@@ -31,5 +31,7 @@ One of the agile core values, Openness, as stated in Manifesto *"individuals and
 * Team integrated GoAPIs and started to develop **NodeJs** frontend part
 
 ## Week 6:
-* Team **finalized** the application
-* Everyone's performance on **presentation** was discussed
+* Team finalized the **frontend** part of the application
+* Decided on **delployment** methods
+* Each team member offered their ideas on how to **improve** the system
+* Team started testing the application and sharing their results and issues encountered
