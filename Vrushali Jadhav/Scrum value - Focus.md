@@ -29,5 +29,13 @@ In a week’s time, the team should create and assign user stories, code to deve
 + VPC peering to connect machines that are setup accross AZ's and regions
 + Setting up public facing loadbalancer to connect to MongoDB cluster
 
-+ Plan was made to meet next time with finsihed frontend and integrate the code 
++ Plan was made to meet next time with finsihed frontend and integrate the code \
+
+###### Week 6:
++ Team sat down together and integrated everything together
++ Helped each other out with the problems they were facing 
++ By this time entire architecture was in place
++ Node.js frontend app was finished today 
++ Team divided the contents and decided on slides to be presented tomorrow
+
   

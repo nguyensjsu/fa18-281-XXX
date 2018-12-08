@@ -31,7 +31,7 @@
 
 ## Project Research:
 
-* [Shubham -> Kubernetes on AWS (NodePort Service)]()
+* [Shubham -> Kubernetes on AWS (NodePort Service)](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Research/Kubernetes%20on%20AWS%20(NodePort).md)
 
 * [Shubham -> AWS Lambda and Amazon API Gateway](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Shubham%20Sawant/Research/AWS%20Lambda.md)
 
@@ -41,7 +41,7 @@
 
 * [Rohan -> REDIS ](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Documentation/REDIS.md)
 
-* [Yicheng -> AWS Lamba](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Yicheng%20Li/Research/Research.md)
+* [Yicheng -> AWS Lamba and ElasticBeanStalk](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Yicheng%20Li/Research/Research.md)
 
 * [Asel -> CI/CD Pipeline](https://github.com/nguyensjsu/fa18-281-code-monks/blob/master/Asel%20Salmenbayeva/Research/CICD%20Pipeline.md)
 
