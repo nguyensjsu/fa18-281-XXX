@@ -19,13 +19,3 @@
 
    Use case:
    Deploy our nodeJS application for public access
-
-   Steps to deploy nodeJS:
-   1. Create web an app environment follow instructions under links https://docs.aws.amazon.com/quickstarts/latest/webapp/welcome.html?icmpid=docs_eb_console_new
-   2. Create an instance to pull nodeJS code inside the instance.
-   3. Under the folder you nodejs code is in, setup eb
-      .eb init()
-        .select the region for your elasticBeanStalk environment, and pick the web environment where the nodeJS application deploy on.
-      .eb status()
-      .eb deploy
-    4. Go to AES web environment and click the link and direct to your app.
