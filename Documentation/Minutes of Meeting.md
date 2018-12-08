@@ -97,7 +97,8 @@
 * A target date was set to complete the GO API functionality before the next meeting.
 * Tested and verified the MongoDB cluster setup of every team member created using VPC peering technique.
 
-# Week 6:
+# Week 6: 
+## Meeting no.1
 <b>Date:</b> 12/01/2018
 <b>Time:</b> 2:00 pm  
 <b>Place:</b> MLK Library, San Jose State University 
@@ -111,8 +112,47 @@
 6. Yicheng
 
 ## Meeting Purpose: _Integrating the GO APIs with frontend_
-* The team discussed tested all the GO APIs and made some modifications.
+* The team tested all the GO APIs and made some modifications.
 * The team decided to integrate the GO APIs with the frontend.
 * Discussion was done on ways to implement and complete the project well before the due date.
 * All the team members came up with one or more ideas to implement the wow factor functionality.
+
+# Week 6:
+## Meeting no.2
+<b>Date:</b> 12/3/2018  
+<b>Time:</b> 4:00 pm  
+<b>Place:</b> MLK Library, San Jose State University 
+
+<b>Members Present: </b> 
+1. Nitish
+2. Shubham
+3. Rohan
+4. Vrushali
+5. Asel
+6. Yicheng
+
+## Meeting Purpose: _Completing frontend module_
+* The team worked on finishing the frontend module.
+* The team members helped each other with minor issues and blockers encountered in frontend module and API implementation.
+* The team discussed and finalised the deployment methodology.
+* The team decided to have a final meeting before the demonstration day to prepare.
+* The team also decided to validate and test all the end-points from front-end to the backend before the project demonstration.
+
+# Week 7:
+<b>Date:</b> 12/7/2018  
+<b>Time:</b> 6:00 pm  
+<b>Place:</b> Centerra Apartments, Business Lounge. 
+
+<b>Members Present: </b> 
+1. Nitish
+2. Shubham
+3. Rohan
+4. Vrushali
+5. Asel
+6. Yicheng
+
+## Meeting Purpose: _Testing and final preparation_
+* The team tested the application end-to-end.
+* The team prepared for the project demonstration.
+* The team members helped each other to fix some minor blockers within the application.
 

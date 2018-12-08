@@ -29,6 +29,7 @@ var productCatalogueServer = "http://13.52.15.0:8000/testproduct/";
 var cartServer = "http://13.52.15.0:8000/testcart/";
 var orderServer = "http://13.52.15.0:8000/testorder/";
 var paymentServer = "http://13.52.15.0:8000/testpayment/";
+var reviewServer = "http://13.52.15.0:8000/testreview/";
 
 var userID = null;
 var isLoggedIn = false;
@@ -44,36 +45,12 @@ app.get('/signup', function(request, response) {
   response.render('user/signup', {login: isLoggedIn, cartQuantity: cartQuantity});
 });
 
-app.post('/signin', function(request, response) {
-	var emailID = request.body.email;
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", userloginServer+ "users/" +emailID);
-	xmlhttp.setRequestHeader("Content-Type", "application/json");
-	xmlhttp.send();
-	console.log("In SignIn Post call");
-	xmlhttp.onreadystatechange = function()
-	{
-		console.log("Came here");
-		if (this.readyState === 4 && this.status === 200) {
-			var responseText = JSON.parse(this.responseText);
-
-			if(responseText.Email == emailID) {
-				isLoggedIn = true;
-				cartID = responseText.CartID;
-				userID = responseText.UserID;
-
-				response.redirect("/products");
-			}
-			else {
-				response.redirect("/signin");
-			}
-		}
-	}
-});
-
 app.post('/signup', function(request, response) {
 
 signUpCallback(request, (newCartId)=>{
+
+	console.log("NewCartId is "+newCartId);
+
 	if(newCartId){
 		console.log(newCartId);
 		console.log("Type is:");
@@ -87,12 +64,16 @@ signUpCallback(request, (newCartId)=>{
 				"Email":  request.body.email,
 				"Address": request.body.address,
 				"Password": request.body.password,
-				"CartID": ""+newCartId
+				"CartID": newCartId
 			};
 
 			xmlhttp.send(JSON.stringify(jsonToSend));
+
+			console.log("Payload sent");
+
 			xmlhttp.onreadystatechange = function()
 			{
+				console.log("Got back the response");
 				if (this.readyState === 4 && this.status === 200) {
 					response.redirect("/signin")
 				}
@@ -105,7 +86,7 @@ signUpCallback(request, (newCartId)=>{
 	});
 });
 
-function signUpCallback(req,callback){
+function signUpCallback(req,callback) {
 	var xmlhttp1 = new XMLHttpRequest();
 	xmlhttp1.open("POST", cartServer + "carts");
 	xmlhttp1.setRequestHeader("Content-Type", "application/json");
@@ -184,7 +165,7 @@ function productCatalogCallBack(req, callback) {
 	callback();
 }
 
-app.get('/', function(request, response){
+app.get('/', function(request, response) {
 	if (isLoggedIn) {
 		response.redirect('/products');
 	}
@@ -312,6 +293,33 @@ function getTheProduct(productId, callback) {
 			}
 	}
 }
+
+app.post('/signin', function(request, response) {
+	var emailID = request.body.email;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", userloginServer+ "users/" +emailID);
+	xmlhttp.setRequestHeader("Content-Type", "application/json");
+	xmlhttp.send();
+	console.log("In SignIn Post call");
+	xmlhttp.onreadystatechange = function()
+	{
+		console.log("Came here");
+		if (this.readyState === 4 && this.status === 200) {
+			var responseText = JSON.parse(this.responseText);
+
+			if(responseText.Email == emailID) {
+				isLoggedIn = true;
+				cartID = responseText.CartID;
+				userID = responseText.UserID;
+
+				response.redirect("/products");
+			}
+			else {
+				response.redirect("/signin");
+			}
+		}
+	}
+});
 
 app.get('/cart', function(request, response) {
 
@@ -512,7 +520,7 @@ app.get('/vieworder/:orderid', function(request, response) {
 		}
 		else {
 			getPaymentFromOrderID(currentOrder, (currentPayment)=> {
-				console.log("Payment is:"+payment);
+				console.log("Payment is:"+currentPayment);
 				console.log("currentPayment is:");
 				console.log(currentPayment);
 				response.render('./main/orderdetail', {payment:currentPayment, order:currentOrder, login:isLoggedIn, cartQuantity:cartQuantity});
@@ -613,6 +621,102 @@ function updateThePaymentStatus(request, callback) {
 		if (this.readyState === 4 && this.status === 200) {
 			currentPayment = JSON.parse(this.responseText);
 			callback(currentPayment);
+		}
+	}
+}
+
+app.get('/reviews/:id', function(request, response) {
+	console.log("Inside review get-----------------------------");
+	var productId = request.params["id"];
+
+	reviewsCallback(productId, (reviews)=> {
+		console.log(reviews);
+
+		if(reviews==null) {
+			reviews = new Object();
+		}
+		var xmlhttp1 = new XMLHttpRequest();
+		xmlhttp1.open("GET", productCatalogueServer+ "products/" + productId);
+		xmlhttp1.setRequestHeader("Content-Type", "application/json");
+		xmlhttp1.send();
+
+		xmlhttp1.onreadystatechange = function()
+		{
+			if (this.readyState === 4 && this.status === 200) {
+				var product = JSON.parse(this.responseText);
+				console.log(product);
+				response.render('./main/reviews', {reviews:reviews, product: product, login: isLoggedIn, cartQuantity: cartQuantity});
+			}
+		}
+	});
+
+});
+
+function reviewsCallback(productid, callback) {
+	var xmlhttp1 = new XMLHttpRequest();
+	xmlhttp1.open("GET", reviewServer+ "reviews/" + productid);
+	xmlhttp1.setRequestHeader("Content-Type", "application/json");
+	xmlhttp1.send();
+
+	xmlhttp1.onreadystatechange = function()
+	{
+		if (this.readyState === 4 && this.status === 200) {
+			var reviews = JSON.parse(this.responseText);
+			console.log(reviews);
+			callback(reviews);
+		}
+	}
+}
+
+app.post('/submitreview', function(request, response) {
+	console.log("-------------------------------Inside review post-----------------------------");
+
+	var productidnew = request.body.productid;
+
+	postReviewCallback(request, ()=> {
+		reviewsCallback(productidnew, (reviews)=> {
+			console.log(reviews);
+
+			if(reviews==null) {
+				reviews = new Object();
+			}
+			var xmlhttp1 = new XMLHttpRequest();
+			xmlhttp1.open("GET", productCatalogueServer+ "products/" + productidnew);
+			xmlhttp1.setRequestHeader("Content-Type", "application/json");
+			xmlhttp1.send();
+
+			xmlhttp1.onreadystatechange = function()
+			{
+				if (this.readyState === 4 && this.status === 200) {
+					var product = JSON.parse(this.responseText);
+					console.log(product);
+					response.render('./main/reviews', {reviews:reviews, product: product, login: isLoggedIn, cartQuantity: cartQuantity});
+				}
+			}
+		});
+	});
+});
+
+function postReviewCallback (request, callback) {
+
+	var jsonToSend = {
+		"ReviewString": request.body.review,
+		"ProductIDString":  request.body.productid
+	};
+
+	var xmlhttp1 = new XMLHttpRequest();
+	xmlhttp1.open("POST", reviewServer + "/reviews");
+	xmlhttp1.setRequestHeader("Content-Type", "application/json");
+	xmlhttp1.send(JSON.stringify(jsonToSend));
+
+	xmlhttp1.onreadystatechange = function()
+	{
+		if (this.readyState === 4 && this.status === 200) {
+			var allReviews = JSON.parse(this.responseText);
+			console.log(allReviews);
+			callback();
+			//response.redirect('/reviews/:productidnew');
+			//response.render('./main/reviews', {product: product, login: isLoggedIn, cartQuantity: cartQuantity});
 		}
 	}
 }

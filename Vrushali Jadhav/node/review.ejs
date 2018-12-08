@@ -1,0 +1,48 @@
+<% layout('layout') -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <img src="<%= product.Image %>" style="width:600px;height:500px; margin-top: 75px" class="border">
+        </div>
+
+        <div class="col-md-4">
+            <h3><%= product.ProductName %></h3>
+            <h1>$<%= product.Price %></h1>
+            <p class="lead"><%= product.ProductDesc %></p>
+
+            <form method="post" >
+                     <textarea id="subject" name="review" id="review" placeholder="Share your review.." style="width:450px;height:400px" required></textarea>
+                     <input type="hidden" name="priceHidden" id="priceHidden"  class="form-control" value="<%= product.Price %>">
+                     <input type="hidden" name="item" class="form-control" value="<%= product.ProductName %>">
+                       <p class="mt-2"></p>
+                     <!-- <input type="text" id="priceValue"  name="priceValue"  style="border: none;  background: transparent; border-color: transparent;" value="$<%= product.Price%>" readonly> -->
+
+                        <p class="mt-5"></p>
+                    <a href="/" class="btn btn-info btn-lg">Submit your review</a>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+    <h2> Reviews </h2>
+	<table class ="table table-striped">
+
+		    <% for(var i=0; i < reviews.length; i++) { %>
+        
+	    <tr>
+		    <td>&nbsp;&nbsp; <%=  reviews[i].ReviewString %>&nbsp;&nbsp;</td>
+		  </tr>
+      <% } %>
+
+	    </table>
+	<br>
+</div>
+</div>
+</div>
+
