@@ -29,3 +29,12 @@
 - [x] Deploy ProductAPI on Region Ohio.
 - [x] Setup ELB for two instances of ProductAPI.
 - [-] Upload product data
+
+## Week 6
+### Testing, Deploy, Documentation
+- [x] create product data
+- [x] test product API integrate with the NodeJS application
+- [x] test network partition
+- [x] create test cases
+- [x] add documentation and other files
+- [x] deploy nodejs using ElasticBeanStalk
