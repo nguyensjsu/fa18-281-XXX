@@ -27,3 +27,9 @@
 ## Week 5
 
 * This week, we are setting up our backend architecture. Three region connected to each other using VPC peering. One of our teammates researches on this part, educates and helps out other teammates during group meeting. We respect each teammate has different knowledge background and stands out for each other.
+
+## Week 6
+
+* As a final week to work on the project, we focus on the deployment of the system and testing of the application.
+* All team members' ideas are open to discuss. We decide to use ElasticBeanStalk for easy deployment and management. 
+* Respect the deadline of the project, we setup the system earlier so that we can test the system , prepare presentation and deliver presentation on time.
