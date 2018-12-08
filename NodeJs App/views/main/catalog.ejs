@@ -11,6 +11,9 @@
                         <h3> <%= products[i].ProductName %> </h3>
                         <p>$<%= products[i].Price %> </p>
                     </div>
+                    <a href="/reviews/<%= products[i].productID %>">
+                        <input type="reviews" value="Reviews" class="btn btn-primary btn-block" style="width:100px;height:30px;">
+                    </a>
                 </div>
             </a>
         </div>
