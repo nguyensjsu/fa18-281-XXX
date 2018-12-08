@@ -24,11 +24,11 @@ app.use(express.static(__dirname + '/public'));
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 
-var userloginServer = "http://13.52.15.0:8000/testuser/";//"http://192.168.99.100:5000/"
-var productCatalogueServer = "http://13.52.15.0:8000/testproduct/";//"http://192.168.99.100:5001/"
-var cartServer = "http://13.52.15.0:8000/testcart/";//"http://192.168.99.100:5002/"
-var orderServer = "http://13.52.15.0:8000/testorder/";//"http://192.168.99.100:5003/""http://orderapi-1735855588.us-east-1.elb.amazonaws.com:80/";//
-var paymentServer = "http://13.52.15.0:8000/testpayment/";//"http://192.168.99.100:5004/"
+var userloginServer = "http://13.52.15.0:8000/testuser/";
+var productCatalogueServer = "http://13.52.15.0:8000/testproduct/";
+var cartServer = "http://13.52.15.0:8000/testcart/";
+var orderServer = "http://13.52.15.0:8000/testorder/";
+var paymentServer = "http://13.52.15.0:8000/testpayment/";
 
 var userID = null;
 var isLoggedIn = false;

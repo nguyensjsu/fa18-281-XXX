@@ -1,7 +1,7 @@
 ## Week 1
 ### Project Research
 - [x] 1. Understanding the project requirement and architecture from various articles and books.
-- [x] 2. Research on AWS lambda and Amazon API Gatway was done.
+- [x] 2. Research on AWS lambda and Amazon API Gateway was done.
 - [X] 3. Understood AKF scale cube, partition tolerance and the quorum consensus.
 
 ## Week 2
@@ -14,7 +14,7 @@
 - [X] 6. Test the mongoDB replicaset by inserting data in primary node.
 
 ## Week 3
-### Test GoAPI and move MongoDB replicaset to private subnets.
+### Test GoAPI and move MongoDB replicaSet to private subnets. (Wow factor - VPC Peering)
 - [x] 1. Tested the GoAPI for various corner cases using postman.
 - [x] 2. Researched on VPC peering.
 - [x] 3. Used VPC peering to connect two VPCs which are in different regions.
@@ -32,5 +32,10 @@
 ### Start integrating the NodeJS app and start testing
 - [x] 1. Integrate nodeJS app with other teammates and start basic sanity testing.
 - [x] 2. Try various corner cases where app might fail.
-- [x] 3. Fix those issues and get ready with final application. 
+- [x] 3. Fix those issues and get ready with final application.
 
+## Week 6
+### Deploy GoAPI on Kubernetes cluster (WOW Factor)
+- [x] 1. Team Discussed the possible wow factors.
+- [x] 2. We decided to go with Kubernetes deployment.
+- [x] 3. We used Bitnami AMI instance from marketplace and used NodePort service.

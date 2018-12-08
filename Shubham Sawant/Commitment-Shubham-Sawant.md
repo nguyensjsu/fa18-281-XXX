@@ -36,9 +36,10 @@
 ## Week 5
 
 * All teammates completed their part of GOAPI and has started working on frontend app.
-* Everyone decided that NodeJS should be used for the frontend development. Some team members haven't worked with NodeJS before, they have decided to learn basics of nodejs before starting the development. But they are confident that they would complete their part by end of the week. 
+* Everyone decided that NodeJS should be used for the frontend development. Some team members haven't worked with NodeJS before, they have decided to learn basics of nodejs before starting the development. But they are confident that they would complete their part by end of the week.
 
 ## Week 6
 
 * Every teammate completed their part of frontend. There were some glitches and respective person decided to get rid of it. We are going to deploy the application on heroku cloud. For that we asked Pranav (TA) to give one of us Admin access of the repo.
+* Team decided to deploy the application on ElasticBeanStalk. Also one of the teammate suggested an idea of deploying the GoAPI on kubernetes cluster.
 * Team decided to meet again this week to do sanity check and demo preparation.
