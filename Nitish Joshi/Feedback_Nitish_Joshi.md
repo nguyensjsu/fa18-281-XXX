@@ -31,4 +31,9 @@
 * The team members provided their valuable feedback for the GO APIs developed.
 * The team made sure everyone was on the same page and provided individual feedback as well.
 
+## Week 7:
+* The team members put in all the hardwork in the final week to ensure timely delivery.
+* The team members appreciated all the efforts put in and provided a positive feedback.
+* The positive feedback motivated the team to perform even better.
+
 
